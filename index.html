@@ -581,7 +581,7 @@
     <div class="container">
         <header>
             <h1>ACCA FA概念判断练习</h1>
-            <p>Study Hub 01 · True or False · 判断对错练习</p>
+
         </header>
 
         <!-- 章节选择 -->
@@ -622,7 +622,7 @@
         <!-- 卡片 -->
         <div class="cards-container" id="cardsContainer"></div>
 
-        <footer>ACCA FA · Study Hub 01 · 概念判断练习 · 共 <span id="totalItemCount">0</span> 道</footer>
+        <footer>ACCA FA 概念判断练习@广外南国教学用 · 共 <span id="totalItemCount">0</span> 道</footer>
     </div>
 
     <script>
@@ -1903,9 +1903,206 @@
                     { id: 'ch13-q25-4', src: 'CH13 Q25', en: 'Profit for the year will be included as a line in the statement of changes in equity.', cn: '年度利润将作为权益变动表中的一个行项目。', ans: true, key: '年度利润是权益变动表核心行项目', exp: '<b>年度利润(Profit for the year)</b>直接影响<b>留存收益(Retained earnings)</b>，是<b>权益变动表(SOCIE)</b>的核心内容，作为独立行项目列示。' },
                     { id: 'ch13-q25-5', src: 'CH13 Q25', en: 'Interest paid on bank borrowings will be included as a line in the statement of changes in equity.', cn: '支付的银行借款利息将作为权益变动表中的一个行项目。', ans: false, key: '借款利息是财务费用不在权益变动表', exp: '<b>银行借款利息(Interest on borrowings)</b>是<b>财务费用(Finance cost)</b>，计入<b>利润表(P/L)</b>，影响年度利润。但利息本身不作为<b>权益变动表(SOCIE)</b>的单独行项目列示。' }
                 ]
-            }
-        ];
+            },
 
+            // ==================== CH14: 试算平衡表、差错更正与不完整记录 (Trial Balance, Error Correction & Incomplete Records) ====================
+            {
+                id: 'ch14',
+                title: '试算平衡表、差错更正与不完整记录 (Trial Balance, Error Correction & Incomplete Records)',
+                label: 'CH14',
+                items: [
+                    // ===== 一、借贷规则与正常余额 =====
+                    // Q1 (原题号1) - 多选题: 账户借贷方向
+                    { id: 'ch14-q1-1', src: 'CH14 Q1', en: 'Sales and sales tax owed to the tax authority would both be credit balances in the trial balance.', cn: '销售额和应交税局的销售税在试算平衡表中都应为贷方余额。', ans: true, key: '收入和负债都是贷方', exp: '<b>销售(Sales)</b>是<b>收入(Income)</b>类账户，正常余额在贷方。<b>应交销售税(Sales tax owed)</b>是<b>负债(Liability)</b>类账户，正常余额也在贷方。两者都属于CLIC规则中的贷方项目。' },
+                    { id: 'ch14-q1-2', src: 'CH14 Q1', en: 'Discounts received and sales returns would both be debit balances in the trial balance.', cn: '收到的折扣和销售退回在试算平衡表中都应为借方余额。', ans: false, key: '收到折扣是贷方余额', exp: '<b>收到的折扣(Discounts received)</b>是<b>其他收入(Other income)</b>或成本抵减，正常余额在<b>贷方</b>。<b>销售退回(Sales returns)</b>是销售收入的<b>备抵账户(Contra account)</b>，正常余额在<b>借方</b>。两者方向不同，因此该陈述错误。' },
+                    { id: 'ch14-q1-3', src: 'CH14 Q1', en: 'Purchases and trade receivables would both be debit balances in the trial balance.', cn: '采购和应收账款在试算平衡表中都应为借方余额。', ans: true, key: '费用和资产都是借方', exp: '<b>采购(Purchases)</b>是成本/费用类，属于<b>DEAD</b>规则中的Expenses，正常余额在借方。<b>应收账款(Trade receivables)</b>是<b>资产(Asset)</b>类，正常余额在借方。两者都是借方余额。' },
+                    { id: 'ch14-q1-4', src: 'CH14 Q1', en: 'Trade payables and irrecoverable debts would both be credit balances in the trial balance.', cn: '应付账款和坏账在试算平衡表中都应为贷方余额。', ans: false, key: '坏账费用是借方余额', exp: '<b>应付账款(Trade payables)</b>是负债类，正常余额在<b>贷方</b>。但<b>坏账(Irrecoverable debts)</b>是<b>费用(Expense)</b>类，正常余额在<b>借方</b>。两者方向不同。' },
+
+                    // Q3 (原题号4) - 匹配题: 特殊账户借贷方向
+                    { id: 'ch14-q3-1', src: 'CH14 Q3', en: 'Accumulated depreciation for equipment is a credit balance in the trial balance.', cn: '设备累计折旧在试算平衡表中是贷方余额。', ans: true, key: '累计折旧是资产备抵账户', exp: '<b>累计折旧(Accumulated depreciation)</b>是资产的<b>备抵账户(Contra asset)</b>，虽然与资产相关，但其正常余额在<b>贷方</b>。它抵减资产的原值以得到<b>账面价值(Carrying amount)</b>。' },
+                    { id: 'ch14-q3-2', src: 'CH14 Q3', en: 'Prepayments is a credit balance in the trial balance.', cn: '预付款项在试算平衡表中是贷方余额。', ans: false, key: '预付款项是流动资产借方', exp: '<b>预付款项(Prepayments)</b>是<b>流动资产(Current asset)</b>，代表企业提前支付的、尚未享受的费用。资产类账户正常余额在<b>借方</b>，不是贷方。' },
+                    { id: 'ch14-q3-3', src: 'CH14 Q3', en: 'Revaluation reserve is a credit balance in the trial balance.', cn: '重估储备在试算平衡表中是贷方余额。', ans: true, key: '重估储备属于权益贷方', exp: '<b>重估储备(Revaluation reserve)</b>是<b>股东权益(Equity)</b>的组成部分，属于<b>不可分配储备(Non-distributable reserve)</b>。权益类账户正常余额在<b>贷方</b>。' },
+                    { id: 'ch14-q3-4', src: 'CH14 Q3', en: 'Allowance for receivables is a debit balance in the trial balance.', cn: '应收账款坏账准备在试算平衡表中是借方余额。', ans: false, key: '坏账准备是资产备抵账户贷方', exp: '<b>应收账款坏账准备(Allowance for receivables)</b>是<b>资产备抵账户(Contra asset)</b>，与累计折旧类似，其正常余额在<b>贷方</b>，不是借方。它抵减应收账款的总额以得到净额。' },
+
+                    // Q4 (原题号14) - 多选题: 借方栏账户
+                    { id: 'ch14-q4-1', src: 'CH14 Q4', en: 'Share premium would be included in the debit column of a trial balance.', cn: '股份溢价应包含在试算平衡表的借方栏。', ans: false, key: '股份溢价属于权益贷方', exp: '<b>股份溢价(Share premium)</b>是<b>股东权益(Equity)</b>的一部分，属于<b>资本储备(Capital reserve)</b>。权益类账户正常余额在<b>贷方</b>，不在借方栏。' },
+                    { id: 'ch14-q4-2', src: 'CH14 Q4', en: 'Provisions would be included in the debit column of a trial balance.', cn: '准备金应包含在试算平衡表的借方栏。', ans: false, key: '准备金属于负债贷方', exp: '<b>准备金(Provisions)</b>通常是<b>负债(Liability)</b>性质（如保修准备、法律诉讼准备），正常余额在<b>贷方</b>。注意区分：确认准备金时的费用(Expense)在借方，但准备金账户本身在贷方。' },
+                    { id: 'ch14-q4-3', src: 'CH14 Q4', en: 'Distribution costs would be included in the debit column of a trial balance.', cn: '分销成本应包含在试算平衡表的借方栏。', ans: true, key: '分销成本属于费用借方', exp: '<b>分销成本(Distribution costs)</b>是经营过程中发生的一项<b>费用(Expense)</b>。根据DEAD规则，费用类账户正常余额在<b>借方</b>。' },
+                    { id: 'ch14-q4-4', src: 'CH14 Q4', en: 'Depreciation expense would be included in the debit column of a trial balance.', cn: '折旧费用应包含在试算平衡表的借方栏。', ans: true, key: '折旧费用是借方但累计折旧是贷方', exp: '<b>折旧费用(Depreciation expense)</b>是一项<b>费用(Expense)</b>，正常余额在<b>借方</b>。注意区分：<b>累计折旧(Accumulated depreciation)</b>是备抵账户，正常余额在<b>贷方</b>。两者方向相反。' },
+
+                    // Q5 (原题号49) - 多选题: 交易与试算平衡表
+                    { id: 'ch14-q5-1', src: 'CH14 Q5', en: 'Carriage outwards is included in cost of sales.', cn: '外运费包含在销货成本中。', ans: false, key: '外运费是销售费用不是销货成本', exp: '<b>外运费(Carriage outwards)</b>是将货物运送给客户的费用，属于<b>销售费用/分销成本(Distribution cost)</b>，在利润表中列于毛利之下。只有<b>内运费(Carriage inwards)</b>才计入采购成本，从而影响<b>销货成本(Cost of sales)</b>。' },
+                    { id: 'ch14-q5-2', src: 'CH14 Q5', en: 'Revenue is a credit balance in the trial balance.', cn: '收入在试算平衡表中是贷方余额。', ans: true, key: '收入是贷方余额', exp: '<b>收入(Revenue/Sales)</b>是收入类账户，根据CLIC规则（Credits increase Liabilities, Income, Capital），其正常余额在<b>贷方</b>。' },
+                    { id: 'ch14-q5-3', src: 'CH14 Q5', en: 'Irrecoverable debts are debited in the statement of profit or loss.', cn: '坏账在损益表中作为借项处理。', ans: true, key: '坏账是费用在利润表借方', exp: '<b>坏账(Irrecoverable debts)</b>是一项<b>费用(Expense)</b>，会减少利润。在会计分录中，坏账费用账户是<b>借方余额</b>。在利润表中，它作为费用从收入中扣除。' },
+                    { id: 'ch14-q5-4', src: 'CH14 Q5', en: 'Inventory purchases during the year are always posted to the inventory account.', cn: '年内采购的存货总是过账到存货账户。', ans: false, key: '定期盘存制下记入采购账户', exp: '在<b>定期盘存制(Periodic system)</b>下，年内采购记入<b>采购(Purchases)</b>账户而非存货账户。<b>存货(Inventory)</b>账户只在期末调整。只有在<b>永续盘存制(Perpetual system)</b>下才直接记入存货账户。' },
+
+                    // ===== 二、试算平衡表的目的与局限性 =====
+                    // Q6 (原题号2) - 判断题: TB定义与目的
+                    { id: 'ch14-q6-1', src: 'CH14 Q6', en: 'A trial balance is used as a summary of the balances on some of the accounts in the general ledger.', cn: '试算平衡表被用作总分类账中部分账户余额的摘要。', ans: false, key: 'TB包含所有账户不是部分', exp: '<b>试算平衡表(Trial balance)</b>是总分类账(General ledger)中<b>所有(ALL)</b>账户余额的列表，不是仅"部分(some)"账户。它的目的是完整地检查所有账户的借贷平衡。' },
+                    { id: 'ch14-q6-2', src: 'CH14 Q6', en: 'In a trial balance, the total of the debit balances should equal the total of the credit balances.', cn: '在试算平衡表中，借方余额总额应等于贷方余额总额。', ans: true, key: '借贷总额必须相等', exp: '这是<b>试算平衡表(Trial balance)</b>的基本定义和核心目的——验证<b>复式记账法(Double-entry bookkeeping)</b>的算术准确性。如果借方总额等于贷方总额，说明试算平衡表"平衡(Balances)"。' },
+                    { id: 'ch14-q6-3', src: 'CH14 Q6', en: 'A trial balance highlights all errors made when posting transactions to the general ledger.', cn: '试算平衡表能突显所有在过账交易到总分类账时发生的错误。', ans: false, key: 'TB无法发现所有错误', exp: '<b>试算平衡表(Trial balance)</b>只能检查出导致<b>借贷不平衡</b>的错误。它<b>无法发现</b>：<b>遗漏错误(Error of omission)</b>、<b>原则性错误(Error of principle)</b>、<b>原始分录错误(Error of original entry)</b>、<b>补偿性错误(Compensating error)</b>等。' },
+                    { id: 'ch14-q6-4', src: 'CH14 Q6', en: 'A trial balance only contains balances that will be used to prepare the statement of financial position.', cn: '试算平衡表仅包含将用于编制财务状况表的余额。', ans: false, key: 'TB包含利润表和财务状况表项目', exp: '<b>试算平衡表(Trial balance)</b>包含用于编制<b>财务状况表(SFP)</b>和<b>利润表(SPL)</b>的所有账户余额，不仅限于资产负债表项目。收入、费用等损益类账户也包含在内。' },
+
+                    // Q7 (原题号7) - 单选题: TB编制目的
+                    { id: 'ch14-q7-1', src: 'CH14 Q7', en: 'The purpose of preparing a trial balance is to confirm whether the sum of all credit balances equals the sum of all debit balances.', cn: '编制试算平衡表的目的是确认所有贷方余额的总和是否等于所有借方余额的总和。', ans: true, key: 'TB核心目的是验证借贷平衡', exp: '<b>试算平衡表(Trial balance)</b>的核心目的是验证总分类账中所有账户的<b>借方余额总额</b>是否等于<b>贷方余额总额</b>，以此来初步检查<b>复式记账法(Double-entry bookkeeping)</b>的算术准确性。' },
+                    { id: 'ch14-q7-2', src: 'CH14 Q7', en: 'The purpose of preparing a trial balance is to confirm whether all transactions have been recorded.', cn: '编制试算平衡表的目的是确认所有交易是否都已记录。', ans: false, key: 'TB无法确认所有交易已记录', exp: '如果整个交易被遗漏（<b>完全遗漏错误, Error of omission</b>），借方和贷方都没有记录，试算平衡表仍然会平衡。因此TB<b>无法确认</b>所有交易是否都已记录。' },
+                    { id: 'ch14-q7-3', src: 'CH14 Q7', en: 'The purpose of preparing a trial balance is to highlight whether entries have been incorrectly recorded in the wrong account.', cn: '编制试算平衡表的目的是突显分录是否被错误地记录在错误的账户中。', ans: false, key: 'TB无法发现分类错误', exp: '如果分录记入错误的账户（如<b>分类错误, Error of commission</b>或<b>原则性错误, Error of principle</b>），但借贷金额相等，试算平衡表仍然会平衡，<b>无法</b>发现此类错误。' },
+
+                    // Q8 (原题号15) - 匹配题: 错误能否被TB发现
+                    { id: 'ch14-q8-1', src: 'CH14 Q8', en: 'A transposition error where different amounts are posted to the debit and credit sides will be identified by extracting a trial balance.', cn: '借贷双方过账了不同金额的换位错误会被编制试算平衡表所识别。', ans: true, key: '借贷金额不等的错误会被TB发现', exp: '如果<b>借方金额</b>与<b>贷方金额</b>不相等（如借记$124，贷记$142），这种错误会导致试算平衡表的借方总额与贷方总额不相等，因此<b>会被(Will be identified)</b>试算平衡表发现。' },
+                    { id: 'ch14-q8-2', src: 'CH14 Q8', en: 'Depreciation calculated using the wrong percentage will be identified by extracting a trial balance.', cn: '使用错误百分比计算的折旧会被编制试算平衡表所识别。', ans: false, key: '金额计算错但借贷平衡不会被TB发现', exp: '虽然<b>折旧费用(Depreciation expense)</b>和<b>累计折旧(Accumulated depreciation)</b>的金额是错误的，但会计分录（借：折旧费用，贷：累计折旧）仍然以相同的（虽然错误的）金额入账，借贷平衡不受影响。' },
+                    { id: 'ch14-q8-3', src: 'CH14 Q8', en: 'A journal entry that has not been posted at all will be identified by extracting a trial balance.', cn: '一笔完全未过账的日记账分录会被编制试算平衡表所识别。', ans: false, key: '完全遗漏不影响TB平衡', exp: '这是<b>遗漏错误(Error of omission)</b>。如果整个交易（包括借方和贷方）都未被记录或过账，它<b>不会影响</b>试算平衡表的平衡性。TB仍然会平衡，错误不会被发现。' },
+
+                    // ===== 三、会计差错与暂记账户 =====
+                    // Q9 (原题号19) - 单选题: 暂记账户产生原因
+                    { id: 'ch14-q9-1', src: 'CH14 Q9', en: 'Inventory being overstated due to damage to some products will give rise to the creation of a suspense account.', cn: '因部分产品损坏导致存货高估会导致暂记账户的产生。', ans: false, key: '存货计价错误不导致暂记账户', exp: '存货高估是一个<b>计价错误</b>，它会影响资产负债表和利润表的准确性，但它本身不违反<b>复式记账法(Double-entry bookkeeping)</b>的借贷平衡，因此不会导致试算平衡表不平衡，也不会产生<b>暂记账户(Suspense account)</b>。' },
+                    { id: 'ch14-q9-2', src: 'CH14 Q9', en: 'A cost incorrectly charged to one expense account instead of another expense account will give rise to the creation of a suspense account.', cn: '费用被错误地记入另一个费用账户会导致暂记账户的产生。', ans: false, key: '费用分类错误不影响TB平衡', exp: '将费用记入错误的费用账户是<b>分类错误(Error of commission)</b>。无论记入哪个费用账户，都有一个相等的贷方分录，借贷金额相等，试算平衡表仍然会平衡，不会产生<b>暂记账户(Suspense account)</b>。' },
+                    { id: 'ch14-q9-3', src: 'CH14 Q9', en: 'An expense recorded on the debit side of one account but not recorded on the credit side of any account will give rise to the creation of a suspense account.', cn: '一笔费用只记了借方但没有记任何账户的贷方，会导致暂记账户的产生。', ans: true, key: '单边分录导致暂记账户产生', exp: '这是一个<b>单边分录错误(One-sided entry)</b>。分录中只有借方，没有对应的贷方，从而破坏了借贷平衡。试算平衡表的借方总额将高于贷方总额，必须使用<b>暂记账户(Suspense account)</b>来使其暂时平衡。' },
+
+                    // Q10 (原题号22) - 判断题: 会计差错判断
+                    { id: 'ch14-q10-1', src: 'CH14 Q10', en: 'The same transposition error posted to both sides of an accounting entry will result in the creation of a suspense account.', cn: '同一换位错误同时过账到会计分录的借贷双方会导致暂记账户的产生。', ans: false, key: '借贷同额错误不影响TB平衡', exp: '如果一个<b>换位错误(Transposition error)</b>同时以相同的错误金额影响借方和贷方（如两边都错记为$132而非$123），<b>借贷总额仍然相等</b>。试算平衡表会平衡，不会产生<b>暂记账户(Suspense account)</b>。' },
+                    { id: 'ch14-q10-2', src: 'CH14 Q10', en: 'An incorrect entry into the non-current asset register will cause the trial balance not to balance.', cn: '非流动资产登记簿中的错误分录会导致试算平衡表不平衡。', ans: false, key: '非流动资产登记簿不影响TB', exp: '<b>非流动资产登记簿(Non-current asset register)</b>是一个<b>备查账簿(Memorandum book)</b>，不属于<b>复式记账系统(Double-entry system)</b>。它只是辅助记录，其错误不直接影响总分类账(General ledger)的借贷平衡。' },
+                    { id: 'ch14-q10-3', src: 'CH14 Q10', en: 'An entry that debits two accounts without any corresponding credit will cause the trial balance not to balance.', cn: '一笔同时借记两个账户但没有任何对应贷方的分录会导致试算平衡表不平衡。', ans: true, key: '只有借方没有贷方破坏借贷平衡', exp: '这个分录有两个<b>借方(Debit)</b>记录，没有任何<b>贷方(Credit)</b>，违反了<b>复式记账法</b>中每笔交易借贷必须相等的原则。这将导致试算平衡表<b>不平衡</b>，并产生<b>暂记账户(Suspense account)</b>。' },
+                    { id: 'ch14-q10-4', src: 'CH14 Q10', en: 'A transaction posted as a cash sale instead of a credit sale will result in a suspense account.', cn: '一笔交易被记为现金销售而不是赊销会导致暂记账户的产生。', ans: false, key: '现金销售和赊销都借贷平衡', exp: '这是<b>分类错误(Error of commission)</b>。现金销售(借:现金,贷:销售)和赊销(借:应收账款,贷:销售)都有对等的借贷方，金额相等。只是借方的资产账户不同，试算平衡表仍然平衡，不会产生<b>暂记账户</b>。' },
+
+                    // Q15 (原题号46) - 单选题: TB正确陈述
+                    { id: 'ch14-q15-1', src: 'CH14 Q15', en: 'A trial balance can only be extracted at the end of a reporting period.', cn: '试算平衡表只能在报告期末提取。', ans: false, key: 'TB可以在任何时点编制', exp: '<b>试算平衡表(Trial balance)</b>可以在会计期间的<b>任何时点(Any time)</b>编制，以检查账目的平衡情况，不限于<b>报告期末(End of reporting period)</b>。' },
+                    { id: 'ch14-q15-2', src: 'CH14 Q15', en: 'A trial balance does not prove that all transactions have been recorded.', cn: '试算平衡表不能证明所有交易都已记录。', ans: true, key: 'TB无法证明所有交易已记录', exp: '<b>试算平衡表(Trial balance)</b>无法证明所有交易都已记录。例如，<b>完全遗漏错误(Error of omission)</b>——整个交易借贷双方都未记——不会被试算平衡表发现，因为借贷仍然平衡。' },
+                    { id: 'ch14-q15-3', src: 'CH14 Q15', en: 'A trial balance proves the arithmetic accuracy of the ledger accounts.', cn: '试算平衡表证明了分类账账户的算术准确性。', ans: false, key: 'TB只能初步检查不能完全证明', exp: '<b>试算平衡表(Trial balance)</b>只证明<b>借方总额等于贷方总额</b>，但不能"证明"分类账的<b>算术准确性(Arithmetic accuracy)</b>。因为可能存在<b>补偿性错误(Compensating errors)</b>或其他不影响平衡的错误。' },
+                    { id: 'ch14-q15-4', src: 'CH14 Q15', en: 'Financial statements can be prepared directly from a trial balance without any adjustments.', cn: '财务报表可以直接从试算平衡表编制，无需任何调整。', ans: false, key: '编制报表前需要年末调整', exp: '<b>试算平衡表(Trial balance)</b>是编制财务报表的基础，但通常在编制报表前还需要进行一系列的<b>年末调整(Year-end adjustments)</b>，如计提<b>折旧(Depreciation)</b>、<b>应计费用(Accruals)</b>、<b>预付费用(Prepayments)</b>等。' },
+
+                    // ===== 四、差错更正与分类 =====
+                    // Q16 (原题号8) - 多选题: 期初试算平衡表
+                    { id: 'ch14-q16-1', src: 'CH14 Q16', en: 'Land and buildings at cost would be included in the opening trial balance of an accounting period.', cn: '土地和建筑物的成本将包含在会计期间的期初试算平衡表中。', ans: true, key: '非流动资产在期初TB中出现', exp: '<b>土地和建筑物(Land and buildings)</b>是<b>非流动资产(Non-current asset)</b>，属于<b>资产负债表项目(SFP item)</b>，是<b>永久性账户(Permanent account)</b>。其成本账户的余额会从上期结转，出现在<b>期初试算平衡表(Opening TB)</b>中。' },
+                    { id: 'ch14-q16-2', src: 'CH14 Q16', en: 'Purchases would be included in the opening trial balance of an accounting period.', cn: '采购将包含在会计期间的期初试算平衡表中。', ans: false, key: '采购是临时性账户不在期初TB', exp: '<b>采购(Purchases)</b>是<b>利润表项目(P/L item)</b>，属于<b>临时性账户(Temporary account)</b>。利润表账户在每个会计期末会被结清(Closed off)，余额转入<b>留存收益(Retained earnings)</b>。下个期间开始时，采购账户期初余额为<b>零</b>。' },
+                    { id: 'ch14-q16-3', src: 'CH14 Q16', en: 'Depreciation expense would be included in the opening trial balance of an accounting period.', cn: '折旧费用将包含在会计期间的期初试算平衡表中。', ans: false, key: '折旧费用是临时性账户期末结清', exp: '<b>折旧费用(Depreciation expense)</b>是<b>利润表项目(P/L item)</b>，期末会被结清。注意区分：<b>累计折旧(Accumulated depreciation)</b>是<b>资产负债表项目</b>，会出现在期初TB中；但"折旧费用"账户不会。' },
+                    { id: 'ch14-q16-4', src: 'CH14 Q16', en: 'Receivables would be included in the opening trial balance of an accounting period.', cn: '应收款项将包含在会计期间的期初试算平衡表中。', ans: true, key: '应收款项是永久性账户', exp: '<b>应收款项(Receivables)</b>是<b>流动资产(Current asset)</b>，属于<b>永久性账户(Permanent account)</b>。其期末余额会结转并在<b>期初试算平衡表(Opening TB)</b>中出现。' },
+
+                    // Q19 (原题号5) - 单选题: 更正分录方向
+                    { id: 'ch14-q19-1', src: 'CH14 Q19', ctx: 'An insurance invoice was incorrectly posted to distribution costs instead of administrative expenses.', en: 'The correcting journal entry should debit administrative expenses and credit distribution costs.', cn: '更正日记账分录应借记管理费用贷记分销成本。', ans: true, key: '更正分录借正确科目贷错误科目', exp: '(1) 减少错误的<b>分销成本(Distribution costs)</b>：费用减少记<b>贷方</b>。(2) 增加正确的<b>管理费用(Administrative expenses)</b>：费用增加记<b>借方</b>。所以更正分录是 DR Admin CR Distribution。' },
+                    { id: 'ch14-q19-2', src: 'CH14 Q19', ctx: 'An insurance invoice was incorrectly posted to distribution costs instead of administrative expenses.', en: 'This error will cause the trial balance not to balance.', cn: '这个错误会导致试算平衡表不平衡。', ans: false, key: '费用间分类错误不影响TB', exp: '这是<b>分类错误(Error of commission)</b>。虽然记入了错误的费用账户，但借贷金额仍然相等（对应的贷方如银行/应付账款不受影响），试算平衡表仍然<b>平衡</b>，不会产生暂记账户。' },
+
+                    // Q20 (原题号29) - 单选题: 提款误记为费用
+                    { id: 'ch14-q20-1', src: 'CH14 Q20', ctx: 'A sole trader discovered that drawings have been debited to the other expenses account in error.', en: 'The correcting entry should debit the capital account and credit the other expenses account.', cn: '更正分录应借记资本账户贷记其他费用账户。', ans: true, key: '提款误记费用需调入资本账户', exp: '(1) 减少错误的<b>其他费用(Other expenses)</b>：费用减少记<b>贷方(CR)</b>。(2) 正确记录<b>提款(Drawings)</b>减少业主权益：<b>资本(Capital)</b>减少记<b>借方(DR)</b>。更正分录为 DR Capital, CR Other expenses。' },
+                    { id: 'ch14-q20-2', src: 'CH14 Q20', ctx: 'A sole trader discovered that drawings have been debited to the other expenses account in error.', en: 'This error requires the use of a suspense account to correct.', cn: '更正此错误需要使用暂记账户。', ans: false, key: '此错误不需要暂记账户', exp: '原始错误分录的借贷金额相等（借方金额=贷方金额），试算平衡表仍然平衡。这是费用和提款之间的<b>分类错误</b>，不影响借贷平衡，因此更正此错误<b>不需要</b>使用<b>暂记账户(Suspense account)</b>。' },
+
+                    // Q23 (原题号39) - 单选题: 错误类型识别
+                    { id: 'ch14-q23-1', src: 'CH14 Q23', ctx: 'Repair costs for shop fixtures have been added to the non-current asset balance in the statement of financial position.', en: 'This is an example of an error of principle.', cn: '这是原则性错误的一个例子。', ans: true, key: '收益性支出资本化是原则性错误', exp: '修理费(Repair cost)是<b>收益性支出(Revenue expenditure)</b>，应当期费用化。将其错误地当作<b>资本性支出(Capital expenditure)</b>记入<b>非流动资产(NCA)</b>，违反了基本的会计原则，是典型的<b>原则性错误(Error of principle)</b>。' },
+                    { id: 'ch14-q23-2', src: 'CH14 Q23', ctx: 'Repair costs for shop fixtures have been added to the non-current asset balance in the statement of financial position.', en: 'This is an example of an error of omission.', cn: '这是遗漏错误的一个例子。', ans: false, key: '交易已记录只是记错类别', exp: '<b>遗漏错误(Error of omission)</b>是指整个交易被完全遗漏，没有记录。此处交易<b>已经被记录</b>了，只是记错了账户类别（费用记为资产）。所以不是遗漏错误，而是<b>原则性错误(Error of principle)</b>。' },
+
+                    // ===== 五、不完整记录概念 =====
+                    // Q33 (原题号41) - 多选题: 应付账款推算
+                    { id: 'ch14-q33-1', src: 'CH14 Q33', en: 'The payables ledger can be used to calculate the missing figure for purchases when dealing with incomplete records.', cn: '处理不完整记录时，应付账款分类账可用于计算缺失的采购数额。', ans: true, key: '应付账款可推算采购额', exp: '通过<b>应付账款控制账户(Payables ledger control account)</b>，如果知道期初期末余额、付款额、折扣和退货等，可以作为平衡项推算出本期的<b>赊购额(Credit purchases)</b>。' },
+                    { id: 'ch14-q33-2', src: 'CH14 Q33', en: 'The payables ledger can be used to calculate closing balances with customers when dealing with incomplete records.', cn: '处理不完整记录时，应付账款分类账可用于计算与客户的期末余额。', ans: false, key: '客户余额需用应收账款账户', exp: '与<b>客户(Customers)</b>的期末余额是<b>应收账款(Trade receivables)</b>，需要用<b>应收账款分类账(Receivables ledger)</b>来计算，而不是应付账款分类账。应付账款只涉及<b>供应商(Suppliers)</b>。' },
+                    { id: 'ch14-q33-3', src: 'CH14 Q33', en: 'The payables ledger can be used to calculate the opening balance with suppliers when dealing with incomplete records.', cn: '处理不完整记录时，应付账款分类账可用于计算与供应商的期初余额。', ans: true, key: '应付账款可倒推供应商期初余额', exp: '如果知道应付账款的期末余额、本期采购额、付款额和折扣等，可以通过<b>应付账款控制账户(Payables control account)</b>倒推出与供应商的<b>期初余额(Opening balance)</b>。' },
+                    { id: 'ch14-q33-4', src: 'CH14 Q33', en: 'The payables ledger can be used to calculate cash paid to customers when dealing with incomplete records.', cn: '处理不完整记录时，应付账款分类账可用于计算付给客户的现金。', ans: false, key: '付给客户现金不通过应付账款', exp: '付给<b>客户(Customers)</b>的现金通常是销售退款，影响的是<b>应收账款(Receivables)</b>或现金账户，而不是<b>应付账款分类账(Payables ledger)</b>。应付账款只跟踪对<b>供应商(Suppliers)</b>的付款。' },
+
+                    // Q42 (原题号10) - 匹配题: 资本变动等式
+                    { id: 'ch14-q42-1', src: 'CH14 Q42', ctx: 'Using the net assets method to calculate profit: Profit = Assets - Liabilities - Opening Capital - Capital Introduced + Drawings.', en: 'When calculating profit using the net assets method, opening capital should be deducted.', cn: '使用净资产法计算利润时，期初资本应作为减项。', ans: true, key: '期初资本是计算利润的减项', exp: '根据<b>资本变动等式(Capital reconciliation)</b>：本期利润 = 期末资本 - 期初资本 + 提款 - 追加资本。其中期末资本 = 期末资产 - 期末负债。因此<b>期初资本(Opening capital)</b>在计算利润时是<b>减项(Deducted)</b>。' },
+                    { id: 'ch14-q42-2', src: 'CH14 Q42', ctx: 'Using the net assets method to calculate profit: Profit = Assets - Liabilities - Opening Capital - Capital Introduced + Drawings.', en: 'When calculating profit using the net assets method, capital introduced during the period should be added.', cn: '使用净资产法计算利润时，期内追加资本应作为加项。', ans: false, key: '追加资本是计算利润的减项', exp: '根据<b>资本变动等式</b>，<b>追加资本(Capital introduced)</b>在计算利润时是<b>减项(Deducted)</b>，不是加项。因为追加资本增加了期末净资产，但它不是通过<b>经营活动(Operating activities)</b>产生的利润。' },
+                    { id: 'ch14-q42-3', src: 'CH14 Q42', ctx: 'Using the net assets method to calculate profit: Profit = Assets - Liabilities - Opening Capital - Capital Introduced + Drawings.', en: 'When calculating profit using the net assets method, drawings should be added.', cn: '使用净资产法计算利润时，提款应作为加项。', ans: true, key: '提款是计算利润的加项', exp: '根据<b>资本变动等式</b>，<b>提款(Drawings)</b>在计算利润时是<b>加项(Added)</b>。因为提款减少了期末净资产，但它不是经营亏损。提款的金额需要<b>加回</b>以反映真实的经营利润。' },
+                    { id: 'ch14-q42-4', src: 'CH14 Q42', ctx: 'Using the net assets method to calculate profit: Profit = Assets - Liabilities - Opening Capital - Capital Introduced + Drawings.', en: 'When calculating profit using the net assets method, liabilities at the end of the period should be deducted.', cn: '使用净资产法计算利润时，期末负债应作为减项。', ans: true, key: '期末负债是计算利润的减项', exp: '根据<b>资本变动等式</b>，<b>期末负债(Liabilities)</b>从期末<b>资产(Assets)</b>中扣除以得到<b>期末资本(Closing capital = Assets - Liabilities)</b>。因此期末负债在计算利润时是<b>减项(Deducted)</b>。' }
+                ]
+            },
+            {
+                id: 'ch15',
+                title: 'CH15 财务报表通用原则与损益表及财务状况表',
+                label: 'CH15',
+                items: [
+                    // CH15 Q1 (原题号 2) - 判断题: 附注的目的
+                    { id: 'ch15-q1-1', src: 'CH15 Q1', en: 'Disclosure notes only provide qualitative information about the accounting policies used by the entity.', cn: '披露附注仅提供关于主体所用会计政策的定性信息。', ans: false, key: '披露附注既含定性也含定量', exp: '披露附注(Disclosure notes)不仅提供关于会计政策的<b>定性信息(qualitative information)</b>，还提供大量的<b>定量信息(quantitative information)</b>。' },
+                    { id: 'ch15-q1-2', src: 'CH15 Q1', en: 'Disclosure notes provide information to improve readers\' understanding of the financial statements.', cn: '披露附注提供信息以增进读者对财务报表的理解。', ans: true, key: '附注旨在增进理解', exp: '财务报表正文中的数字是高度汇总的，附注通过提供更详细的分解和解释，帮助报表使用者更好地<b>理解(understanding)</b>财务报表。' },
+
+                    // CH15 Q2 (原题号 12) - 判断题/匹配题: 列示位置
+                    { id: 'ch15-q2-1', src: 'CH15 Q2', en: 'The carrying amount of equipment at the start of the year will be shown in the statement of financial position.', cn: '年初设备账面净值将显示在财务状况表中。', ans: false, key: '年初账面净值在附注中披露', exp: '<b>年初账面净值(Carrying amount at the start of the year)</b>是非流动资产变动调节表的一部分，在<b>披露附注(Disclosure notes)</b>中详细说明，而不是在财务状况表正文列示。' },
+                    { id: 'ch15-q2-2', src: 'CH15 Q2', en: 'Cash in hand will be shown in the disclosure notes.', cn: '手头现金将显示在披露附注中。', ans: false, key: '手头现金不单独列示/披露', exp: '<b>手头现金(Cash in hand)</b>通常与银行存款合并为“现金及现金等价物”在财务状况表列示，本身作为一个单独的数字通常既不在正文也不在附注中单独披露。' },
+                    { id: 'ch15-q2-3', src: 'CH15 Q2', en: 'Work in progress will be shown in the disclosure notes.', cn: '在产品将显示在披露附注中。', ans: true, key: '存货的分类细节在附注', exp: '存货总额列示在财务状况表正文，而存货的构成明细（如原材料、<b>在产品/Work in progress</b>、产成品）会在<b>披露附注(Disclosure notes)</b>中分解说明。' },
+                    { id: 'ch15-q2-4', src: 'CH15 Q2', en: 'Intangible assets will be shown in the statement of financial position.', cn: '无形资产将显示在财务状况表中。', ans: true, key: '无形资产列示财务状况表', exp: '<b>无形资产(Intangible assets)</b>是一个重要的资产类别，通常会在<b>财务状况表(Statement of financial position)</b>正文的非流动资产部分作为单独的行项目列示。' },
+
+                    // CH15 Q3 (原题号 13) - 多选题: 收入确认
+                    { id: 'ch15-q3-1', src: 'CH15 Q3', en: 'Revenue is included within the statement of profit or loss when an order is received.', cn: '收入在收到订单时计入损益表。', ans: false, key: '收到订单并非确认时点', exp: '收到订单时，客户尚未获得控制权，<b>履约义务(performance obligation)</b>尚未完成，因此不能确认<b>收入(revenue)</b>。' },
+                    { id: 'ch15-q3-2', src: 'CH15 Q3', en: 'Revenue is included within the statement of profit or loss when the sale is made.', cn: '收入在销售达成时计入损益表。', ans: true, key: '销售达成时确认收入', exp: '当<b>销售达成(sale is made)</b>时，意味着商品控制权已转移，<b>履约义务(performance obligation)</b>完成，此时应确认收入。' },
+                    { id: 'ch15-q3-3', src: 'CH15 Q3', en: 'Revenue is included within the statement of profit or loss when cash is transferred from buyer to seller.', cn: '收入在现金从买方转移到卖方时计入损益表。', ans: false, key: '收入确认不看现金收付', exp: '收入确认基于<b>权责发生制(Accruals concept)</b>而非收付实现制，不能只看是否收到了<b>现金(cash)</b>。' },
+                    { id: 'ch15-q3-4', src: 'CH15 Q3', en: 'Revenue is included within the statement of profit or loss on the basis of the accruals concept.', cn: '收入基于权责发生制概念计入损益表。', ans: true, key: '收入确认基于权责发生制', exp: '<b>权责发生制(Accruals concept)</b>要求利润在赚取时（即履约义务完成时）计算确认，而不是收到现金时。' },
+
+                    // CH15 Q4 (原题号 14) - 匹配题: SPL还是SCF
+                    { id: 'ch15-q4-1', src: 'CH15 Q4', en: 'Taxation paid will be found in a statement of profit or loss.', cn: '支付的税款将出现在损益表中。', ans: false, key: '支付现金属于现金流量表', exp: '<b>支付的税款(Taxation paid)</b>是一笔实际的现金流出，应列示在<b>现金流量表(Statement of cash flows)</b>中；损益表列示的是当期应交税费(Taxation expense)。' },
+                    { id: 'ch15-q4-2', src: 'CH15 Q4', en: 'Sales made on credit will be found in a statement of profit or loss.', cn: '赊销将出现在损益表中。', ans: true, key: '赊销收入属于损益表', exp: '即使未收到现金，根据<b>权责发生制(Accruals basis)</b>，<b>赊销(Sales made on credit)</b>也构成了本期收入，列示在<b>损益表(Statement of profit or loss)</b>。' },
+                    { id: 'ch15-q4-3', src: 'CH15 Q4', en: 'Capital introduced will be found in a statement of profit or loss.', cn: '投入的资本将出现在损益表中。', ans: false, key: '投入资本属于现金流量表', exp: '业主<b>投入的资本(Capital introduced)</b>由于是一笔现金流入，应列示在<b>现金流量表(Statement of cash flows)</b>筹资活动中，不影响当期利润。' },
+                    { id: 'ch15-q4-4', src: 'CH15 Q4', en: 'Proceeds from sale of land and buildings will be found in a statement of profit or loss.', cn: '出售土地和建筑物的所得将出现在损益表中。', ans: false, key: '出售所得款项属现金流量', exp: '出售土地/建筑物的<b>所得买款(Proceeds)</b>是实际收到的现金，属于<b>现金流量表(Statement of cash flows)</b>投资活动的流入。只有出售产生的损益(profit/loss on disposal)才列在损益表。' },
+
+                    // CH15 Q5 (原题号 18) - 多选题: IAS 1 最低披露要求
+                    { id: 'ch15-q5-1', src: 'CH15 Q5', en: 'Cost of sales is required by IAS 1 to be disclosed on the face of the Statement of Profit or Loss.', cn: 'IAS 1要求销货成本在损益表正文披露。', ans: false, key: '销货成本不是强制单独列示', exp: '如果采用按性质分类费用法，则不会单独列示<b>销货成本(Cost of sales)</b>，因此它不属于在所有情况下都强制在正文披露的项目。' },
+                    { id: 'ch15-q5-2', src: 'CH15 Q5', en: 'Income tax expense is required by IAS 1 to be disclosed on the face of the Statement of Profit or Loss.', cn: 'IAS 1要求所得税费用在损益表正文披露。', ans: true, key: '税费必须单独列示在正文', exp: 'IAS 1明确要求<b>所得税费用(Income tax expense)</b>必须在损益表正文单独列示。' },
+                    { id: 'ch15-q5-3', src: 'CH15 Q5', en: 'Other income is required by IAS 1 to be disclosed on the face of the Statement of Profit or Loss.', cn: 'IAS 1要求其他收入在损益表正文披露。', ans: false, key: '其他收入不强制单独列示', exp: '<b>其他收入(Other income)</b>通常会列示，但在IAS 1的最低要求中并不强制将其作为一个独立的标题进行正文列示。' },
+                    { id: 'ch15-q5-4', src: 'CH15 Q5', en: 'Revenue is required by IAS 1 to be disclosed on the face of the Statement of Profit or Loss.', cn: 'IAS 1要求收入在损益表正文披露。', ans: true, key: '收入必须单独列示在正文', exp: 'IAS 1明确要求<b>收入(Revenue)</b>必须在损益表正文单独列示，这是核心的报表数字。' },
+
+                    // CH15 Q6 (原题号 21) - 单选题: 重要性
+                    { id: 'ch15-q6-1', src: 'CH15 Q6', en: 'Materiality depends on the size of an omission or misstatement.', cn: '重要性取决于错报或漏报的金额大小。', ans: false, key: '重要性取决于金额和性质', exp: '<b>重要性(Materiality)</b>不仅取决于金额大小(size)，还取决于其<b>性质(nature)</b>是否影响报表使用者的经济决策。' },
+                    { id: 'ch15-q6-2', src: 'CH15 Q6', en: 'Material items may be aggregated with similar items in the financial statements.', cn: '重要项目可以与财务报表中的类似项目汇总。', ans: false, key: '重要项目要单独列示', exp: '<b>重要项目(Material items)</b>通常需要单独列示(presented separately)，汇总会掩盖其重要性。' },
+                    { id: 'ch15-q6-3', src: 'CH15 Q6', en: 'Immaterial items need not be presented separately.', cn: '不重要项目无需单独列示。', ans: true, key: '不重要单独列示可汇总', exp: '为了避免财务报表过于杂乱，<b>不重要的项目(Immaterial items)</b>无需单独列示，可以进行<b>汇总(aggregated)</b>。' },
+                    { id: 'ch15-q6-4', src: 'CH15 Q6', en: 'Immaterial items can be aggregated in the financial statements but not in the notes.', cn: '不重要项目可以在财务报表中汇总，但在附注中不能。', ans: false, key: '附注中也可以汇总不重要项目', exp: '<b>不重要的项目(Immaterial items)</b>无论在财务报表正文还是在<b>附注(notes)</b>中都可以按照性质和功能进行汇总。' },
+
+                    // CH15 Q7 (原题号 22) - 单选题: 比较信息
+                    { id: 'ch15-q7-1', src: 'CH15 Q7', en: 'In accordance with IAS 1, all numerical and narrative information for the previous period must be disclosed as comparative information.', cn: '根据IAS 1，必须将上一期间的所有数字和叙述性信息作为比较信息披露。', ans: false, key: '不仅是所有信息需相关', exp: '企业只需提供<b>与理解当期财务报表相关(relevant)</b>的叙述性和描述性信息，而非绝对盲从地附上所有往期叙述。' },
+                    { id: 'ch15-q7-2', src: 'CH15 Q7', en: 'In accordance with IAS 1, previous period narrative which is relevant to the current period must be disclosed as comparative information.', cn: '根据IAS 1，与当期相关的上一期间叙述性信息必须作为比较信息披露。', ans: true, key: '相关性则是披露的刚需', exp: '当与理解当期报表<b>相关(relevant)</b>时，就不可或缺地必须包括上一期间的叙述性(narrative)和描述性信息以形成对比。' },
+
+                    // CH15 Q8 (原题号 23) - 判断题: 履约时间点
+                    { id: 'ch15-q8-1', src: 'CH15 Q8', en: 'The performance obligation of carrying out annual tests of car safety and roadworthiness will be satisfied over time.', cn: '进行年度汽车安全和适路性测试的履约义务将在某一时段内完成。', ans: false, key: '即时一次性测试时点完成', exp: '测试完成出报告时一次性完成交付内容，因此这是在<b>某一时点(at a point in time)</b>瞬间完成履约。' },
+                    { id: 'ch15-q8-2', src: 'CH15 Q8', en: 'The performance obligation of providing service contracts with new car sales will be satisfied over time.', cn: '新车销售附带服务合同的履约义务将在某一时段内完成。', ans: true, key: '长期合约时段内累积履行', exp: '保养服务合同涵盖长期时间范围，客户在此期间匀性地同时接受并消耗这些保护服务利益，界定为在<b>某一时段内(over time)</b>完成交付。' },
+
+                    // CH15 Q9 (原题号 24) - 单选题: 控制权转移
+                    { id: 'ch15-q9-1', src: 'CH15 Q9', en: 'The customer having legal title to the goods is an indicator of the transfer of control.', cn: '客户拥有商品的法定所有权是控制权转移的指标。', ans: true, key: '法定所有权是重大指标', exp: '取得<b>法定所有权(legal title)</b>说明所有权人对其财产享有处分权，这是客户获取商品实质控制权的强有力指标。' },
+                    { id: 'ch15-q9-2', src: 'CH15 Q9', en: 'The customer having paid a deposit for the goods is an indicator of the transfer of control.', cn: '客户已为商品支付定金是控制权转移的指标。', ans: false, key: '支付定金完全不发生控制转移', exp: '支付<b>定金(deposit)</b>只属交易发轫期的一种融资或担保约定，不代表客户已经获得了对该商品的<b>控制权(control)</b>。' },
+                    { id: 'ch15-q9-3', src: 'CH15 Q9', en: 'The customer being obliged to pay for the goods is an indicator of the transfer of control.', cn: '客户有义务为商品付款是控制权转移的指标。', ans: true, key: '无条件付款义务是指标', exp: '当卖方完成其交付触发客户向卖方产生无条件的<b>现时实体付款义务(obliged to pay)</b>时，印证买家此时点其实已经接受并控制了货物。' },
+
+                    // CH15 Q10 (原题号 25) - 单选题: IF15五步法
+                    { id: 'ch15-q10-1', src: 'CH15 Q10', en: 'Identifying the performance obligations in a contract is one of the five steps in recognising revenue under IFRS 15.', cn: '根据IFRS 15，识别合同中的履约义务是确认收入的五个步骤之一。', ans: true, key: '履约拆解属于五步之一', exp: '<b>识别履约义务(Identify performance obligations)</b>正是五步法确认模型核心逻辑链路的第二步。' },
+                    { id: 'ch15-q10-2', src: 'CH15 Q10', en: 'Assessing whether control of the goods or services has been transferred to the customer is one of the five steps in recognising revenue under IFRS 15.', cn: '根据IFRS 15，评估商品或服务的控制权是否已转移给客户是确认收入的五个步骤之一。', ans: false, key: '评估控制权不单立步', exp: '审查<b>控制权是否转移(control has been transferred)</b>的动作本质是服务于界定第五步的履约确认标准，其自身不是五步法中并列的单独步骤。' },
+
+                    // CH15 Q11 (原题号 3) - 多选题: 必须单独披露的项目
+                    { id: 'ch15-q11-1', src: 'CH15 Q11', en: 'A write-off of inventory must be disclosed either in the statement of profit or loss or in the notes.', cn: '存货核销必须在损益表或附注中披露。', ans: true, key: '强制揭示存货核销', exp: '<b>存货核销(Write-off of inventory)</b>是一项影响重大的减值动作，对主体的成本有非常态化影响，必须向外披露。' },
+                    { id: 'ch15-q11-2', src: 'CH15 Q11', en: 'Wages of staff must be disclosed as a separate item either in the statement of profit or loss or in the notes.', cn: '员工工资必须在损益表或附注中作为单独项目披露。', ans: false, key: '单项工资大多予整合', exp: '员工福利通常作为费用全貌的一枝分支存在（如分配至制造费用或管理费用），纯粹单独列出<b>员工工资(Wages of staff)</b>并非强制事项。' },
+                    { id: 'ch15-q11-3', src: 'CH15 Q11', en: 'Finance costs must be disclosed either in the statement of profit or loss or in the notes.', cn: '财务费用必须在损益表或附注中披露。', ans: true, key: '财务费用必单列在面', exp: '按照公允披露准则IAS 1明确的表体格式要求，<b>财务费用(Finance costs)</b>必须被单独作为一个单行的财务成果独立行项目供评判资金成本。' },
+
+                    // CH15 Q13 (原题号 8) - 多选题: 分销成本
+                    { id: 'ch15-q13-1', src: 'CH15 Q13', en: 'Marketing expenses would be included within selling and distribution costs.', cn: '营销费用将包含在销售和分销成本中。', ans: true, key: '营销费用计入分销', exp: '<b>营销活动(Marketing expenses)</b>是推售产品与获客的第一顺位手段，理应直属于<b>销售和分销成本(Selling and distribution costs)</b>序列。' },
+                    { id: 'ch15-q13-2', src: 'CH15 Q13', en: 'Heating and lighting costs of the finance office would be included within selling and distribution costs.', cn: '财务办公室的暖气和照明费用将包含在销售和分销成本中。', ans: false, key: '后台费用不入前端成本', exp: '财务室等后台部门职员和资源开耗构成了整体经营护持体系，它们的开销列为<b>管理费用(Administrative expenses)</b>。' },
+                    { id: 'ch15-q13-3', src: 'CH15 Q13', en: 'Depreciation of delivery vans would be included within selling and distribution costs.', cn: '送货车的折旧将包含在销售和分销成本中。', ans: true, key: '送货相关损耗计入分销', exp: '因为<b>送货车(Delivery vans)</b>专项专门用于将产品送达到客户的销售后端环节，其运力折旧对应计入<b>分销成本(Distribution costs)</b>。' },
+
+                    // CH15 Q14 (原题号 9) - 匹配题: 费用归类
+                    { id: 'ch15-q14-1', src: 'CH15 Q14', en: 'Depreciation charged on factory machinery should be allocated to cost of sales.', cn: '工厂机器的折旧应分配到销货成本。', ans: true, key: '工厂设备折旧入销货成本', exp: '<b>工厂机器(Factory machinery)</b>磨损直联核心产品成型，其折旧折算入产品制造成本并内化入<b>销货成本(Cost of sales)</b>。' },
+                    { id: 'ch15-q14-2', src: 'CH15 Q14', en: 'Computer consumables for printing in the finance office should be allocated to cost of sales.', cn: '财务办公室打印用电脑耗材应分配到销货成本。', ans: false, key: '非直联耗材入管理费用', exp: '维持后台财务部办公室运转的办公消耗件属于<b>管理费用(Administrative expenses)</b>支出。' },
+                    { id: 'ch15-q14-3', src: 'CH15 Q14', en: 'Interest costs on a bank overdraft should be allocated to finance costs.', cn: '银行透支的利息成本应分配到财务费用。', ans: true, key: '资金贷出成本入财务', exp: '融通款项占有而支付的代价（<b>利息/Interest costs</b>）单列划分为<b>财务费用(Finance costs)</b>。' },
+                    { id: 'ch15-q14-4', src: 'CH15 Q14', en: 'Wages cost for the sales team should be allocated to administrative expenses.', cn: '销售团队的工资成本应分配到管理费用。', ans: false, key: '前线人员工资入分销', exp: '负责业务推销转化的<b>销售团队(Sales team)</b>酬金由于针对特定的前端推举被计入<b>销售和分销成本(Distribution costs)</b>。' },
+
+                    // CH15 Q24 (原题号 1) - 多选题: 流动负债
+                    { id: 'ch15-q24-1', src: 'CH15 Q24', en: 'A bank loan repayable in two years would be classified as a current liability.', cn: '两年内偿还的银行贷款将被归类为流动负债。', ans: false, key: '长期负债超限一年', exp: '预期结算远于下一营业周期的债务归于长线即<b>非流动负债(Non-current liability)</b>。' },
+                    { id: 'ch15-q24-2', src: 'CH15 Q24', en: 'A bank overdraft would be classified as a current liability.', cn: '银行透支将被归类为流动负债。', ans: true, key: '随时清索皆列流动项', exp: '有条件触发银行<b>即时清偿(repayable on demand)</b>条款之银行透支等负债始终属流动负债。' },
+                    { id: 'ch15-q24-3', src: 'CH15 Q24', en: 'Trade payables would be classified as a current liability.', cn: '应付账款将被归类为流动负债。', ans: true, key: '日常货账作流动负债', exp: '随常规上下游商务贸易结算的未付货款即<b>应付账款(Trade payables)</b>，处于正常营业短期期限制内判定为流动负债。' },
+                    { id: 'ch15-q24-4', src: 'CH15 Q24', en: 'Capital would be classified as a current liability.', cn: '资本将被归类为流动负债。', ans: false, key: '混淆所有者权益负债', exp: '<b>资本(Capital)</b>表明了内生的净身资产剩余权益属于股东方所有者不属于对第三方的外界偿还义务即不为负债。' },
+
+                    // CH15 Q25 (原题号 6) - 单选题: Provisions
+                    { id: 'ch15-q25-1', src: 'CH15 Q25', en: 'Provisions would be found in the equity section of the statement of financial position.', cn: '预计负债将在财务状况表的权益部分中找到。', ans: false, key: '准备金性质不属业主权益', exp: '引致资源预期流出所构建的<b>预计负债(Provisions)</b>由于体现的是应对不确定外界债权的可能扣件，故不算入权益范畴。' },
+                    { id: 'ch15-q25-2', src: 'CH15 Q25', en: 'Provisions would be found in the liabilities section of the statement of financial position.', cn: '预计负债将在财务状况表的负债部分中找到。', ans: true, key: '现存义务即属负债区段', exp: '既然本质依旧是一项承担了清算任务并有确切预估代价流出的义务(obligation)，将其列入<b>负债(Liabilities)</b>区域内是唯一合正义操作。' },
+
+                    // CH15 Q26 (原题号 11) - 单选题: 识别流动负债
+                    { id: 'ch15-q26-1', src: 'CH15 Q26', en: 'Accumulated depreciation would be included within current liabilities.', cn: '累计折旧将包含在流动负债中。', ans: false, key: '资产备抵与负债无关', exp: '用以反映历年已磨耗抵减额的账目如<b>累计折旧(Accumulated depreciation)</b>仅仅位于资产边且作为减项，并非真正对外产生债务。' },
+                    { id: 'ch15-q26-2', src: 'CH15 Q26', en: 'An allowance for receivables would be included within current liabilities.', cn: '应收账款坏账准备将包含在流动负债中。', ans: false, key: '剥离虚假负债错觉', exp: '用以抵减应接账款预期缩水的<b>坏账准备(Allowance for receivables)</b>即扣减对应款目额，而不属确认一项新负债。' },
+                    { id: 'ch15-q26-3', src: 'CH15 Q26', en: 'A bank overdraft would be included within current liabilities.', cn: '银行透支将包含在流动负债中。', ans: true, key: '立付借期透支属流动项', exp: '随时有被要求无条件填归的性质迫使<b>银行透支(Bank overdraft)</b>无条件归案于刚性的短期流动负债。' },
+
+                    // CH15 Q27 (原题号 15) - 判断题: SFP 列报
+                    { id: 'ch15-q27-1', src: 'CH15 Q27', ctx: 'A company has a bank overdraft and has had a similar balance for the last four years. There are no plans to change this in the next two years.', en: 'It should be included as a non-current liability.', cn: '它应作为非流动负债列示。', ans: false, key: '透支本质定性属流动项', exp: '借贷协议上所赋予银行方可启动<b>随时收回(repayable on demand)</b>权利锁死了其呈报必须定性，无论透支存续历经多长皆被看作流动负债(current liability)。' },
+                    { id: 'ch15-q27-2', src: 'CH15 Q27', ctx: 'A company has purchased a motor vehicle for use by their sales manager. After 12 months it will be sold.', en: 'They should include it as part of inventory.', cn: '他们应将其作为存货的一部分列示。', ans: false, key: '非自制营业存货不可跨权', exp: '为销售助力而不是作本行营业流向核心倒手交易的汽车为<b>非流动资产(Non-current asset)</b>。即便打算短期出售也不能作正常的待售存货。' },
+
+                    // CH15 Q28 (原题号 20) - 匹配题: 各种余额归哪类
+                    { id: 'ch15-q28-1', src: 'CH15 Q28', en: 'Accruals would be included in the current liabilities in the Statement of Financial Position.', cn: '应计费用将包含在财务状况表的流动负债中。', ans: true, key: '临期费用入流动负债', exp: '收益已生但延持留存未付清的营运<b>应计费用(Accruals)</b>必然界定为需短期清账的<b>流动负债(Current liabilities)</b>。' },
+                    { id: 'ch15-q28-2', src: 'CH15 Q28', en: 'Dividends paid would be included in the non-current liabilities in the Statement of Financial Position.', cn: '已付股息将包含在财务状况表的非流动负债中。', ans: false, key: '支付股息分化减权益', exp: '因为钱款动作上已经打出其记录直接挂靠抵除<b>留存收益(Retained earnings)</b>，属于所有者权益板块变化不属任何长短负债。' },
+                    { id: 'ch15-q28-3', src: 'CH15 Q28', en: 'Accumulated depreciation would be included in the non-current assets in the Statement of Financial Position.', cn: '累计折旧将包含在财务状况表的非流动资产中。', ans: true, key: '折旧定资产计落非流动端', exp: '虽为逆向负数(备抵)，但<b>累计折旧(Accumulated depreciation)</b>列报时随扣附属定在原母账旁直接归列连排于<b>非流动资产(Non-current assets)</b>条线下。' }
+                ]
+            },
+
+        ];
 
         // ==================== 状态管理 ====================
         const STORAGE_KEY = 'sh01-tf-progress';
