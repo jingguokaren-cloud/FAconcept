@@ -574,6 +574,240 @@
                 font-size: 0.8em;
             }
         }
+
+        /* 导出错题按钮区域 */
+        .export-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .export-section h3 {
+            color: white;
+            margin-bottom: 4px;
+            font-size: 1.05em;
+        }
+
+        .export-section p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.85em;
+            margin-bottom: 15px;
+        }
+
+        .export-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .export-btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            letter-spacing: 0.3px;
+        }
+
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .export-btn:active {
+            transform: translateY(0);
+        }
+
+        .export-btn-no-answer {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+        }
+
+        .export-btn-with-answer {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+
+        .export-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ========== 打印遮罩层 ========== */
+        .print-overlay {
+            display: none;
+        }
+
+        @media print {
+            /* 隐藏所有正常内容 */
+            body > .container {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .print-overlay {
+                display: block !important;
+                position: static;
+                background: white;
+                color: #1a1a2e;
+                font-family: 'Georgia', 'Noto Serif SC', serif;
+            }
+
+            .print-header {
+                text-align: center;
+                padding: 18px 0 12px;
+                border-bottom: 3px double #1e3a5f;
+                margin-bottom: 16px;
+            }
+
+            .print-header h1 {
+                font-size: 20pt;
+                color: #1e3a5f;
+                margin-bottom: 4px;
+            }
+
+            .print-header .print-meta {
+                font-size: 9pt;
+                color: #666;
+            }
+
+            .print-item {
+                page-break-inside: avoid;
+                border: 1px solid #d1d5db;
+                border-radius: 6px;
+                padding: 12px 16px;
+                margin-bottom: 10px;
+                background: #fafafa;
+            }
+
+            .print-item-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 6px;
+                font-size: 8pt;
+                color: #6b7280;
+            }
+
+            .print-item-tags {
+                display: flex;
+                gap: 6px;
+            }
+
+            .print-tag {
+                background: #1e3a5f;
+                color: white;
+                padding: 1px 8px;
+                border-radius: 4px;
+                font-size: 7.5pt;
+            }
+
+            .print-tag-src {
+                background: #7c3aed;
+            }
+
+            .print-item-context {
+                background: #f3f4f6;
+                border: 1px solid #e5e7eb;
+                border-radius: 4px;
+                padding: 6px 10px;
+                margin-bottom: 8px;
+                font-size: 9pt;
+                color: #4b5563;
+                line-height: 1.5;
+            }
+
+            .print-item-context::before {
+                content: '📋 Scenario: ';
+                font-weight: bold;
+            }
+
+            .print-statement {
+                font-size: 11pt;
+                line-height: 1.7;
+                color: #111;
+                margin-bottom: 8px;
+            }
+
+            .print-tf-box {
+                display: inline-flex;
+                gap: 10px;
+                margin-bottom: 6px;
+            }
+
+            .print-tf-option {
+                width: 36px;
+                height: 24px;
+                border: 1.5px solid #9ca3af;
+                border-radius: 4px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 9pt;
+                font-weight: bold;
+                color: #374151;
+            }
+
+            .print-answer-section {
+                margin-top: 8px;
+                padding-top: 8px;
+                border-top: 1px dashed #d1d5db;
+                font-size: 9.5pt;
+                line-height: 1.6;
+            }
+
+            .print-answer-label {
+                font-weight: bold;
+                color: #1e3a5f;
+            }
+
+            .print-answer-correct {
+                color: #166534;
+                font-weight: bold;
+            }
+
+            .print-answer-wrong {
+                color: #991b1b;
+                font-weight: bold;
+            }
+
+            .print-answer-key {
+                color: #d2042d;
+                font-weight: bold;
+            }
+
+            .print-footer {
+                text-align: center;
+                margin-top: 20px;
+                padding-top: 10px;
+                border-top: 1px solid #d1d5db;
+                font-size: 8pt;
+                color: #9ca3af;
+            }
+
+            @page {
+                size: A4;
+                margin: 15mm 12mm;
+            }
+        }
     </style>
 </head>
 
@@ -622,8 +856,25 @@
         <!-- 卡片 -->
         <div class="cards-container" id="cardsContainer"></div>
 
+        <!-- 导出错题 -->
+        <div class="export-section" id="exportSection">
+            <h3>📤 错题导出</h3>
+            <p>导出当前章节下的错题，生成可打印的 PDF 文件</p>
+            <div class="export-buttons">
+                <button class="export-btn export-btn-no-answer" id="exportNoAnswerBtn" onclick="exportWrongQuestions(false)">
+                    📝 导出错题（不含答案）
+                </button>
+                <button class="export-btn export-btn-with-answer" id="exportWithAnswerBtn" onclick="exportWrongQuestions(true)">
+                    📋 导出错题（含答案）
+                </button>
+            </div>
+        </div>
+
         <footer>ACCA FA 概念判断练习@广外南国教学用 · 共 <span id="totalItemCount">0</span> 道</footer>
     </div>
+
+    <!-- 打印遮罩：仅在打印时显示 -->
+    <div class="print-overlay" id="printOverlay"></div>
 
     <script>
         // ==================== 数 据 ====================
@@ -1437,8 +1688,6 @@
                     { id: 'ch3-q3-3', src: 'CH4 Q3-③', en: 'A goods received note provides written confirmation from the supplier of goods that have been delivered.', cn: '收货单提供了供应商关于已交付货物的书面确认。', ans: false, key: '收货单是买方文件而非供应商确认', exp: '供应商随货附带的确认文件叫做<b>发货单(Goods Despatched Note)</b>，而收货单(GRN)是买方自己的工作人员填写的内部文件。' },
                     { id: 'ch4-q3-4', src: 'CH4 Q3-④', en: 'A goods received note indicates how much is owed to the supplier for the goods that have been delivered.', cn: '收货单标明了因收货而欠供应商的具体金额。', ans: false, key: '收货单通常不含价格信息', exp: '仓库人员填写的收货单通常只包含数量和品相状态，不会记录价格信息。具体的欠款金额需要凭<b>发票(Invoice)</b>来确定。' },
 
-                    { id: 'ch4-q4', src: 'CH4 Q4', ctx: 'Johan bought $1,000 goods on credit. Discovering faults valued at $200, Ludwig (the supplier) issued a credit note for $200.', en: 'To reflect this credit note, Ludwig should Debit Sales $200 and Credit Trade receivables $200.', cn: '为了记录这个折让退单，供应商Ludwig应当借记销售账户$200并在贷方计入应收账款$200。', ans: true, key: '卖方冲销账目', exp: '<b>贷项通知单(Credit Note)</b>代表取消部分订单。作为卖方，需要调减营收与债权要求。即冲减资产：贷记(CR)<b>应收账款(Trade Receivables)</b>；冲减确认过的收入项：借记(DR)<b>销售(Sales)</b>。' },
-
                     { id: 'ch4-q5-1', src: 'CH4 Q5-①', ctx: 'A system integrates sales and purchases modules with general ledger. Cash system is NOT integrated.', en: 'A year-end adjustment to record an un-invoiced amount owing to a supplier would be recorded automatically.', cn: '一笔为还没收到发票的应付货款做的年终调整结账会被系统自动录入转账。', ans: false, key: '意外调整均需手工拔款', exp: '这种暂估入账或者事后补充都超脱了流水线运作的常规采购模块范围（因为没发票作为单据核发），因此必须通过<b>手动日记账凭证(Manual journal entry)</b>去冲记。' },
                     { id: 'ch4-q5-2', src: 'CH4 Q5-②', ctx: 'A system integrates sales and purchases modules with general ledger. Cash system is NOT integrated.', en: 'The correction of identified errors in the general ledger accounts would be processed by using a manual journal entry.', cn: '总账中已确定的过账偏差或挂账谬误可以经由手工干预制作补报调节凭单加以化消更正。', ans: true, key: '特殊除错需人工干预', exp: '系统不懂自动修复人为录入走偏了的挂账失误，这类修补须人为操作定制<b>手工分录(Manual entry)</b>调平。' },
                     { id: 'ch4-q5-3', src: 'CH4 Q5-③', ctx: 'A system integrates sales and purchases modules with general ledger. Cash system is NOT integrated.', en: 'The sale of goods on credit to a new customer would be recorded by using a manual journal entry.', cn: '向一个新鲜接洽的客商挂赊走货出单据会需依靠着后台人员人工敲分录做登记才能完成记录。', ans: false, key: '前端销售联动总账', exp: '既然明盘系统说明了销售及应收分类账已属于<b>集成的(Integrated)</b>范围圈落，那么一旦确认出发票，流水账必自行结转入册无须人力二次搬抬转录。' },
@@ -1466,7 +1715,7 @@
                     { id: 'ch5-q3-1', src: 'CH5 Q3-①', en: 'A cash receipt is a credit entry in the cash account.', cn: '现金收款是现金账户中的一笔贷方分录。', ans: false, key: '收钱进账必为借', exp: '收到现金会让公司掌握的货币资产上升。资产项变鼓必然登记在其借方(Debit entry)。' },
                     { id: 'ch5-q3-2', src: 'CH5 Q3-②', en: 'Payments made to credit suppliers are debited to purchases.', cn: '向信用供应商的付款被借记到采购账户。', ans: false, key: '还债冲抵负债与采购无关', exp: '向供应商偿还旧账是为了抵消以往挂住的那个欠债坑（即记账为借记：DR <b>应付账款(Trade payables)</b>），而非此时重新发生一遍买办开出<b>采购(Purchases)</b>费用。' },
 
-                    { id: 'ch5-q4', src: 'CH5 Q4', ctx: 'Jai received $2,000 from a customer and made cash sales of $800.', en: 'The ledger entries to record these cash receipts will be DR Bank $2,800, CR Trade Receivables $2,000, CR Sales $800.', cn: '记录这些现金收入的会计分录是：借记银行 $2,800，贷记应收账款 $2,000，贷记销售 $800。', ans: true, key: '总入账分摊拆解结转', exp: '银行总收到$2,800故借记(DR)全款，其中源于之前赊账归还故去贷记抵消<b>应收账款(Trade Receivables)</b>，另外这天实打实现结卖出的则顺势贷记生出<b>销售(Sales)</b>盈余。' },
+
 
                     { id: 'ch5-q5', src: 'CH5 Q5', ctx: 'Sales returns of $500 have arrived. These sales were originally made on credit.', en: 'These sales returns will result in an increase in the sales returns account and a decrease in the trade receivables balance.', cn: '这些退货将导致销售退回账户增加以及应收账款余额减少。', ans: true, key: '赊销退货的双重影响', exp: '原赊销的货物被退回时：一方面借记<b>销售退回(Sales returns)</b>以记录退货；另一方面贷记<b>应收账款(Trade receivables)</b>以减少客户的欠款余额。' },
 
@@ -1476,16 +1725,16 @@
                     { id: 'ch5-q7-2', src: 'CH5 Q7-②', en: 'Payments made to credit suppliers are recorded in the purchases ledger account.', cn: '付给信用供应商的钱会被记录在采购大类账里面。', ans: false, key: '还钱和采购是两码事', exp: '支付行为发生时是用来磨平旧有的欠单（借出冲减<b>应付账款(payables ledger)</b>并扣储行水），此时并没有真发生添新库存的买进行为，绝不去蹭惹<b>采购账户(purchases ledger)</b>。' },
                     { id: 'ch5-q7-3', src: 'CH5 Q7-③', en: 'The general ledger is basically just a list of business transactions.', cn: '总账大体上就是把各类发生的商业交易做成的一串清单列表而已。', ans: false, key: '总账是全科目大水池而非日记流', exp: '<b>总分类账(General ledger)</b>里按着所有分门别类的财务“小匣子”（如资产、负债等科目账户）井井有条地归类垒砌，它绝不是那种单调流水账记事的备忘清单日记簿！' },
 
-                    { id: 'ch5-q8', src: 'CH5 Q8', ctx: 'Mingyue purchased goods with a price of $500. She was given a trade discount of 10%.', en: 'The correct journal entry to account for this purchase is DR Purchases $450, CR Trade payables $450.', cn: '记录该次打折进货的标准分录应当是直接用折净结账价：借采购450，贷应付450。', ans: true, key: '商业折扣隐身制不单立账', exp: '交易台前直接抹掉的纯议价折减即<b>商业折扣(Trade Discount)</b>不享受落账待遇，凭证只按照折减剥离完成后的骨折净价（即$450）过一次账就完事了。' },
+
 
                     { id: 'ch5-q9-1', src: 'CH5 Q9-①', en: 'Settlement discount claimed by customers who consistently pay promptly should be charged to interest expenses.', cn: '经常及时付款的客户所享受的结算折扣应计入利息费用。', ans: false, key: '结算折扣不属于利息费用', exp: '<b>结算折扣(Settlement Discount)</b>是为了鼓励客户提前付款而给予的价格减让，属于收入的减项，不是向金融机构借款产生的利息费用。' },
                     { id: 'ch5-q9-2', src: 'CH5 Q9-②', en: 'Trade discounts given to customers are not separately recognised within the accounts.', cn: '给予客户的商业折扣不在账簿中单独确认。', ans: true, key: '商业折扣不单独入账', exp: '<b>商业折扣(Trade discount)</b>在开具发票前就已扣除，账面上只记录扣除折扣后的净额，不需要为折扣金额单独设立账户。' },
 
-                    { id: 'ch5-q10', src: 'CH5 Q10', ctx: 'Vlad offers a 5% settlement discount to customers paying within 14 days. He invoices Customer A (a consistent prompt payer) net of discount ($285 instead of $300). Customer A paid $285.', en: 'To record this payment, Vlad should simply DR Bank $285, CR Trade Receivables $285.', cn: '由于对方肯定提前付款而且已经贴额折净预先开出应收票据了，收到这285块时只要平进平出抵消掉债务即可。', ans: true, key: '预期享受且收妥即直接对消', exp: '根据IFRS 15标准，面对常来蹭奖励熟客们由于开出票据时早就默认按了骨折价$285登记为应收款大盘，后期如果真按金额给这笔打款汇过来了，只要自然平复掉这对双胞胎借贷头寸，不用节外生枝记打折账。' },
 
-                    { id: 'ch5-q11', src: 'CH5 Q11', ctx: 'Shadi purchased goods for $600 with a prompt payment discount of 10%.', en: 'If Shadi settles the debt within the discount period, she will only debit trade payables $540.', cn: '如果该买手在限定宽限快线期付清账单抵得了10%福利（即少掏60块款），她偿债做分录时就只需核销冲借$540应付账龄了。', ans: false, key: '要抹初挂负债必须使用全额', exp: '就算你利用履约条件真实只给人家转账打了拔毛之后的$540八折小碎银！但既然债务恩怨已勾买卖就算两清，打欠条时高挂的那个$600沉重的旧坑洞必须被100%全数连根拔借平掉不可留尾巴！(此时产生的差价填补就是额外收入：<b>CR 收到折扣(Discounts Received) $60</b> )。' },
 
-                    { id: 'ch5-q12', src: 'CH5 Q12', ctx: 'Joe purchased goods with a retail price of $500, a trade discount of 10%, and an optional settlement discount of 5% if paid in 14 days.', en: 'At the time of purchase, the ledger is initially recorded as DR Purchases $450, CR Trade payables $450 without anticipating whether the settlement discount will be taken or not.', cn: '购买时，分类账最初按扣除商业折扣后的净额入账（$450），不预先考虑是否会享受结算折扣。', ans: true, key: '买方初始按全额挂账（保守原则）', exp: '作为买方，进货时只扣除商业折扣后按净额$450入账。在实际付款并享受结算折扣之前，不能提前减少应付金额。这体现了会计的<b>保守性原则</b>。' },
+
+
+
 
                     { id: 'ch5-q14', src: 'CH5 Q14', en: 'A settlement discount allowed to a customer, who had not been expected to take the discount originally, must later be recorded as a deduction from revenue.', cn: '原本指望慢吞吞的客官不会捡这起早的提钱结单羊毛优惠（全额开发票应收了），但万万没料到却被他反杀蹭准期点拿走了，此等临时失血只能后续靠列入主营营收冲抵削薄来给抹平找补。', ans: true, key: '未料的早付奖励扣收入', exp: '若是期初开发票由于不抱奢望按全额确认为了利润。但他老人家真抠那三瓜两枣把账按快行结价划过来了，此时只能乖乖新辟个项作为冲减来平账，记录在<b>主营收入的减项(Deduction from revenue)</b>。' },
 
@@ -1494,17 +1743,17 @@
 
                     { id: 'ch5-q16', src: 'CH5 Q16', en: 'When a registered business purchases goods, the sales tax they paid is formally known as output tax.', cn: '正当经营大掌柜门他们从外买进商品被上头加配的那一抹进货税，正式官方学名便唤作销项税。', ans: false, key: '自家买进负担垫付称进项', exp: '出摊摆卖外销收下商家额外头金的时候才叫作<b>销项税(Output tax)</b>。自己买进商品垫给供货商的税是对税局的一种求偿资产，名为<b>进项税(Input tax)</b>等着拿回或相抵出项！' },
 
-                    { id: 'ch5-q18', src: 'CH5 Q18', ctx: 'Mona purchased goods on credit for $450 plus a sales tax of 20%.', en: 'The correct journal entry to record this purchase is DR Purchases $450, DR Sales tax control account $90, CR Trade payables $540.', cn: '赊着账买这批外挂了两成税码商品（合计540元巨款欠落），对自家的记录处理规程该是：净进成本借记450，剩下那90划给国家金库借条，末尾把这加总出的五百四大口锅安放在长期负债栏贷面上。', ans: true, key: '标准采购涉税剥落公式', exp: '账面剖解极其精准确凿：吃进作为大本的业务成本(借记：<b>采购$450</b>)，为帮官府跑腿而垫出去的抽头算暂替付垫存金资产(借记：<b>销售税款$90</b>)，只有全包全揽大债主才不管你啥税它认总底(贷记：<b>应付外债负债 $540</b>)。' },
 
-                    { id: 'ch5-q19', src: 'CH5 Q19', ctx: 'Desmond purchased goods for $600 (gross, including 20% sales tax). He sold them for $800 (net, excluding 20% sales tax).', en: 'The net balance owed to the tax authority is $60.', cn: 'Desmond欠税务机关的净税款为$60。', ans: true, key: '进项税与销项税的相抵差额', exp: '进项税(Input tax)：$600×(20/120)=$100；销项税(Output tax)：$800×20%=$160。应缴纳的净税额=销项税$160-进项税$100=<b>$60</b>。' },
 
-                    { id: 'ch5-q20', src: 'CH5 Q20', ctx: 'Saleem sold goods on credit for $2,600 net of a 20% sales tax.', en: 'To accurately record this sales transaction, Sales should be credited with $2,600 and Sales tax should be debited with $520.', cn: '为准确记录该销售交易，销售收入应贷记$2,600，销售税应借记$520。', ans: false, key: '代收的销售税是负债应贷记', exp: '净销售额$2,600贷记收入没有问题。但代客户收取的$520销售税是企业欠税务局的款项，属于<b>负债(Liability)</b>，应该<b>贷记(CR Sales tax)</b>而非借记。' },
 
-                    { id: 'ch5-q21', src: 'CH5 Q21', ctx: 'Ravi sold $1,800 of goods on credit including a 20% sales tax. A customer unexpectedly returned 25% of these goods.', en: 'To record the returned goods, Ravi should DR Sales returns $375, DR Sales tax $75, CR Trade receivables $450.', cn: '当砸单退场。原发原消：收入端被削下375(借)，原来头上的官债紧箍咒脱脱重负掉75(借)，那原指望收到腰包沉淀的450客户总欠盘当然一笔勾消变云烟虚空为贷。', ans: true, key: '全原路全比例镜像反冲', exp: '卖货出现黄摊重装，所发所报要用原记号一等比例原路下拨全折拆：打出去的原挂满税金重石虚高巨单大盘额倒吐退款共占$450（总单贷记削减：<b>CR 应收资产狂泄</b>）。拆分剥下给上府的不用再付大包(借：债跌<b>DR 销售税$75</b>)，抽去水分剩那心坎疼的骨痛毛利润跌出(借：主利反打：<b>DR 销售返冲销$375</b>)。' },
 
-                    { id: 'ch5-q25', src: 'CH5 Q25', ctx: 'Kin uses $34 from an imprest petty cash system during the month.', en: 'Under the imprest petty cash system, Kin will draw out $34 cash from the main bank to replace the exact amount spent during the particular period and hence restore the set original float.', cn: '在那种严格定额制小金斗体系下走出的账口，哪怕月末只是花费走这三十多金币，补仓操作就是必须凭花纸又从主行倒腾回拿这34真现将底池抽回填顶复原至基干初刻。', ans: true, key: '花耗多少精确还填多少重驻基限', exp: '该项备用强严体系“<b>定额备用制定死基制(Imprest System)</b>”主核心就在这守持如初平衡池大律。出纳随便你怎么折零腾细碎打出款走，末尾凭条一兜一抄对盘：花了多少零渣凑拢直接按单数抽来真库提纯去完全塞平这个被啃下的补给巨洞令它恒指重立如峰！' },
 
-                    { id: 'ch5-q26', src: 'CH5 Q26', en: 'A permanently employed part-time employee’s weekly wages of $200 could occasionally be paid out of the business petty cash tin limit.', cn: '面对需要开销的那雷打不动长期留任小短工的两百块薪给，为图方便从零花兜顺手拨点凑现过去也未尝不可。', ans: false, key: '备用金决抵受不了薪酬铁网正典', exp: '小边角边花“Petty Cash”零备抽只用做修水补缝顺纸抽钉点墨这种三脚猫应时火救急边角小耗上头。只要是上了“<b>正式聘员在账编(Permanently employed/Wages)</b>”的，管他干的多残边边段干得多小多短，人事薪税流系铁账不可挑逗避跨，更绝不允许私接私掏零用铁盘暗结脱轨规网。' },
+
+
+
+
+
+
 
                     { id: 'ch5-q29', src: 'CH5 Q29', en: 'One of the principal reasons for preparing a periodic bank reconciliation statement is to identify any undetected omissions in the entity cash ledger.', cn: '编制银行对账调节表的主要原因之一是识别企业现金账簿中未被发现的遗漏。', ans: true, key: '银行对账可发现账簿中的遗漏', exp: '一些自动扣款（如直接借记/Direct debit）或银行手续费可能未被企业及时记录。通过<b>银行对账(Bank reconciliation)</b>，可以将银行对账单与企业现金账簿进行比对，从而发现并纠正这些遗漏。' },
 
@@ -1516,7 +1765,7 @@
                     { id: 'ch5-q37-1', src: 'CH5 Q37-①', en: 'A regular but initially unrecorded direct debit requires a correction entry in the cash ledger rather than merely appearing on the bank reconciliation statement.', cn: '一笔已签约但未在现金账簿中记录的直接借记扣款，需要在现金账簿中补记，而不仅仅是列为对账调节项。', ans: true, key: '遗漏的直接借记需更新现金账簿', exp: '签约的<b>直接借记(Direct debit)</b>如银行自动扣款等，如果企业未及时记录，属于现金账簿的遗漏。发现后必须在现金账簿中<b>补记更正(Update cash ledger)</b>，而非仅列为对账调节项。' },
                     { id: 'ch5-q37-2', src: 'CH5 Q37-②', en: 'Outstanding cheques awaiting presentation require an additional entry in the business internal cash ledger.', cn: '等待兑现的未到期支票需要在企业内部现金账簿中额外补记一笔。', ans: false, key: '未兑现支票无需额外调整现金账簿', exp: '企业在签发支票时已经在现金账簿中做了减少银行存款的记录。<b>未兑现支票(Outstanding cheques)</b>只是收款方尚未将支票提交银行兑现，企业无需再做任何账簿调整，仅在对账调节表中列示即可。' },
 
-                    { id: 'ch5-q46', src: 'CH5 Q46', ctx: 'Said has a trade payables balance of $3,236 at year-end (31 Dec 20X3). He received two supplier invoices for goods delivered before the year-end totaling $1,750, and two for goods delivered after the year-end.', en: 'Said should show his trade payables as $4,986 ($3,236 + $1,750) as at 31 December 20X3.', cn: 'Said年末应显示应付账款为$4,986（$3,236 + $1,750）。', ans: true, key: '年末前已收货的发票应计入当期负债', exp: '根据<b>权责发生制/截止日原则(Accruals/Cut-off)</b>，虽然发票在年后才收到，但货物在年末前已交付入库，因此相关的$1,750应付款必须计入本期的<b>应付账款(Trade payables)</b>中，使年末余额为$4,986。' },
+
 
                     { id: 'ch5-q47', src: 'CH5 Q47', ctx: 'In a trade receivables ledger: Debit items (opening, sales) total $100,235. Credit items (Bank, Irrecoverable debts) total $46,620. There is also an unrecorded sales returns of $3,560.', en: 'To balance the ledger, the unrecorded sales return should be recorded on the debit side.', cn: '为使分类账平衡，未入账的销售退回应记录在借方。', ans: false, key: '销售退回应记在应收账款的贷方', exp: '<b>销售退回(Sales returns)</b>会减少应收账款（资产减少），因此应记录在应收账款分类账的<b>贷方(Credit side)</b>。记在借方会导致应收账款虚增，是错误的。' },
 
@@ -1585,29 +1834,29 @@
                     { id: 'ch7-q3-1', src: 'CH7 Q3', ctx: 'A customer is claiming damages. His solicitor believes the claim is unlikely to succeed.', en: 'This claim should be disclosed as a contingent liability in the notes to the financial statements.', cn: '当某项索赔不太可能成功时，该索赔应作为或有负债在财务报表附注中披露。', ans: false, key: '极小可能发生的潜在负债：既不确认也不披露', exp: '根据律师的专业意见，如果索赔成功的可能性被评估为“<b>极小或不太可能(Remote / Unlikely)</b>”，则在会计准则下无需采取任何行动。企业既不需要确认它(Recognise)，也不需要在财务报表附注中进行披露(Disclose)。应归类为<b>两者都不是(Neither)</b>。' },
                     { id: 'ch7-q3-2', src: 'CH7 Q3', ctx: 'A new product has been released with known faults and expects 10% to be returned.', en: 'The business should recognise this expected return rate as a provision in the financial statements.', cn: '企业预期新产品存在缺陷并将有 10% 会被退回，企业应当在财务报表中确认这一预期退货率作为一项准备。', ans: true, key: '可预见的退换货构成实质义务', exp: '出售带有已知缺陷的产品，构成了产生退货推定义务的过去事项。当退换货的可能性达到“<b>很可能(Probable)</b>”且能以合理比率（10%）可靠估计出金额时，企业就完全满足了准则要求，必须据此确认一项正式的<b>准备(Provision)</b>。' },
 
-                    { id: 'ch7-q4', src: 'CH7 Q4', ctx: 'Ana\'s business is being sued for $100,000. Her lawyer informs her there is only a 30% chance the claim will be successful.', en: 'Ana should provide for $30,000 as the expected value of the claim to maintain prudence.', cn: '出于审慎考虑，安娜应以 30% 胜算率作为索赔的期望值，计提 30,000 美元的准备金。', ans: false, key: '可能性判定优先于金额计算', exp: '在决定金额计量前，必须首先判断事件发生的概率。“30%”的可能性在会计准则中仅属于“<b>可能(Possible)</b>”，而未达到“很可能(Probable)”的确认门槛。因此，这笔潜在款项不满足确认准备的条件，不能采用期望值法计提任何金额，而应作为或有负债在附注中<b>披露(Disclose)</b>。' },
+
 
                     { id: 'ch7-q5', src: 'CH7 Q5', ctx: 'Fin sued a competitor for $150,000. His lawyer advised the claim is at best probable and more likely only possible.', en: 'Fin should not include it as an asset or disclose it because the inflow of economic benefit is only possible.', cn: '由于经济利益的流入仅仅是“可能”的，芬恩不应将此次索赔作为资产入账，也不应予以披露。', ans: true, key: '或有资产的确认与披露门槛', exp: '对于潜在获取收益的“<b>或有资产(Contingent Asset)</b>”，会计准则采用了更保守的标准：当利益流入仅为“可能(Possible)”时，既不确认也不披露；当“很可能(Probable)”时，仅在附注中予以披露；只有当经济利益的流入“<b>基本确定(Virtually certain)</b>”时，才能在财务报表中正式确认为一项资产。' },
 
                     { id: 'ch7-q6', src: 'CH7 Q6', en: 'When measuring a provision for a large population of items, the best estimate is one which weights all possible outcomes according to their probabilities.', cn: '在对涉及大量项目的准备进行计量时，最佳估计应是根据所有可能结果及其发生的概率进行加权计算得出的金额。', ans: true, key: '大量同类项目的最佳估计：期望值法', exp: '当准备涉及大量同类项目（例如广泛的产品退保或维修承诺）时，由于样本量大，最佳估计方法应当是应用“<b>期望值法(Expected Value)</b>”。即将所有可能出现的结果根据其对应的发生概率进行加权平均计算，以真实反映整体的预计流出额。' },
 
-                    { id: 'ch7-q7', src: 'CH7 Q7', ctx: 'Inspire is sued for patent infringement. 30% chance to pay nothing. 20% chance to pay $200,000. 80% chance to pay $100,000 if losing. (overall > 50% chance to pay).', en: 'The best estimate of the provision that should be recognised by Inspire is $100,000 representing the most likely outcome.', cn: '代表最可能结果的 100,000 美元应作为 Inspire 确认该准备的最佳估计。', ans: true, key: '单一义务的最佳估计：最可能结果法', exp: '当事件发生的概率（败诉可能性达 70%）满足确认准备的门槛后，对于单一诉讼这类“<b>单一义务(Single Obligation)</b>”，不宜使用多结果的期望加权值法。最佳估计值应当直接采用其中概率最大的一项，即发生机率达 80% 的“<b>最可能的结果(The most likely outcome)</b>”，即确认为 100,000 美元。' },
 
-                    { id: 'ch7-q8', src: 'CH7 Q8', ctx: 'Customer seeks $85k damages. Pern\'s lawyer indicates the court is almost certain to accept it. Settlement is over 12 months after year-end.', en: 'This matter should be dealt with as a non-current liability of $85,000 in Pern\'s financial statements.', cn: 'Pern 公司在财务报表中应当将该事项作为一项 85,000 美元的非流动负债进行处理。', ans: true, key: '金额的可靠估计与负债期限划分', exp: '由于法律专家认定接受客户 85,000 美元索赔之事“几乎确定”，所以应全额按该金额计量准备，而非折中认领公司部分提议款。同时，因案件结案支付期安排在财务年度结束后的 12 个月以外，该准备必须按逾期长度归类为“<b>非流动负债(Non-current liability)</b>”。' },
 
-                    { id: 'ch7-q9', src: 'CH7 Q9', ctx: 'Roc will probably be fined $500,000 in a legal action. The settlement will likely take longer than 12 months.', en: 'The correct accounting entry to recognise the provision is to debit Expenses and credit Non-current liabilities: provisions for $500,000.', cn: '确认该准备的正确会计分录是：借记费用 500,000 美元，贷记非流动负债：准备 500,000 美元。', ans: true, key: '确认准备的复式记账分录', exp: '确认准备意味着企业承担了一项将减少本期利润的费用。因此，分录的借方必须记录当期耗费（借：<b>费用 DR Expenses</b>）。由于罚金的赔付预计将需要超过 12 个月的时间，因此贷方应建立远期负债（贷：<b>非流动负债：准备 CR Non-current provisions</b>），而非直接动用银行存款。' },
 
-                    { id: 'ch7-q10', src: 'CH7 Q10', ctx: 'Sven creates a warranty provision based on 5% returns. 20X6 eligible sales $32,000. 20X7 eligible sales $54,000.', en: 'The amount charged to the statement of profit or loss for the warranty provision in 20X7 is $1,100.', cn: '在 20X7 年度，因保修准备而计入损益表的费用金额应为 1,100 美元。', ans: true, key: '损益表的费用等同于准备余额变动额', exp: '当期应计入损益表的费用并非基于当年销售额的全额计算结果，而是基于准备金余额的调整变动。期末准备金目标总额应为 $54,000 的 5%（即 $2,700），减去期初带入的准备金余额（上期的 $32,000 乘以 5% 即 $1,600）。企业只需就<b>准备的变动额(Movement in provision)</b>——即差额 $1,100——在当期损益表内确认为费用。' },
 
-                    { id: 'ch7-q11', src: 'CH7 Q11', ctx: 'Black Co had a sales return provision of $7,500. The following year-end, the provision should be $8,000.', en: 'An amount of $500 should be included as a charge in Black Co\'s statement of profit or loss for the movement in the provision.', cn: 'Black 公司应就准备金变动在损益表中列示一笔 500 美元的费用支出（Charge）。', ans: true, key: '准备金额外增加构成当期亏损支出', exp: '在多期比较下，如果期末“<b>准备金(Provision)</b>”所需的余额从 $7,500 增加至 $8,000，这表明企业预期未来赔付的负担加重。这 $500 的增加额必须在当期的利润表中补充确认为一笔额外减少利润的“<b>费用或支出(Charge/Expense)</b>”。' },
 
-                    { id: 'ch7-q12', src: 'CH7 Q12', ctx: 'At the start of the year the warranty provision is $40,000. At the end of the year it should be $36,000.', en: 'Rajid should account for this decrease by debiting Current liabilities for $4,000 and crediting Expenses for $4,000.', cn: 'Rajid 应通过借记流动负债 4,000 美元、贷记费用 4,000 美元的方式，来入账准备金缩减的情况。', ans: true, key: '准备金减少将转回费用并降减负债', exp: '本年度保修准备由 $40,000 减少到了 $36,000。准备金的下降意味着企业早前多记的负面耗费得以重新释放并增加账面利润。记账时应冲减降低原有负债金额（<b>借记流动负债 DR Current Liabilities</b>），并将节余部分回转列为费用的减项或将其视作等同于收益（<b>贷记转回费用 CR Expenses</b>）。' },
+
+
+
+
+
+
 
                     { id: 'ch7-q13', src: 'CH7 Q13', en: 'Information included in a disclosure note about provisions should contain a description of the nature of the provision and its carrying amount at the beginning of the period.', cn: '关于准备的披露附注中，应包含有关准备性质的说明以及在期初该款项的账面本金金额。', ans: true, key: '准备附注需详实披露期末流动与性质', exp: '根据 IAS 37 准则，关于准备事项的正规披露必须向报表阅读者清晰陈述该负债的产生起因及其<b>准备性质(Nature of provision)</b>，并完整呈现准备金由于时间推移所发生的<b>账面金额变动(Carrying amounts movement)</b>情况。同时还需要披露预计(Expected)将导致经济流出的时日，而非毫无预知的实际事件发生期。' },
 
                     { id: 'ch7-q14', src: 'CH7 Q14', ctx: 'Following the year-end, an employee had a serious accident and sued the employer.', en: 'This is a non-adjusting event, but because it is significant it must be disclosed in the notes to the financial statements.', cn: '由于该事件属于一项非调整事项，但因其情况极其重大，所以依然必须在财务报表的附注中明确予以披露。', ans: true, key: '期后重大偶发事故只能做非调整披露', exp: '事故、伤损以及伴随发生的诉讼爆发在上一财务周期结束（即<b>报告期后(After the year end)</b>），由于不在过去财年中构成事实存在的基础因此不能对过往财务报表作追回重计。但是这类不可调整过往的重大事件通常会深度影响财情，所以它们被定性为必须予以文字公开通报的<b>重大非调整事项(Significant non-adjusting event requiring disclosure)</b>。' },
 
-                    { id: 'ch7-q15', src: 'CH7 Q15', ctx: 'Tingle recorded a $125,000 insurance receivable before year-end. After year-end, the insurer advised only $12,500 would be reimbursed due to non-compliance.', en: 'Tingle should adjust the financial statements to recognise an expense of $112,500 and reduce the receivable to $12,500.', cn: 'Tingle 公司应调整其财务报表，确认由拒赔带来的 112,500 美元费用损失，并将保险的应收账款数额缩减下调至 12,500 美元。', ans: true, key: '对期末已有事实补充确证必须调整往期账目', exp: '企业在结案期过后获悉保险公司因违约查勘导致拒赔的消息，这实质上也为报告期末（当年）早已发生并存在的既成“工厂大火及潜在合规缺漏情况”提供了极具决定性改变的新补充证据。因此应当立将其追溯判定为<b>一项必须补改的调整事项(Adjusting event)</b>，需要立刻返回旧账冲减掉预期的不实资产，转而认列真实的费损减值。' }
+
                 ]
             },
             {
@@ -1639,10 +1888,10 @@
                     { id: 'ch8-q15-2', src: 'CH8 Q15', en: 'According to IAS 2, each item of inventory should normally be valued separately.', cn: '根据IAS 2规定，每一项存货通常应当单独进行估值计价。', ans: true, key: '单项比较原则', exp: '为防止不同类别存货的较高可变现净值掩盖其他劣质存货的跌价损失，准则一般要求必须对存货进行<b>逐项(Item by item)</b>减值测试与比较。' },
                     { id: 'ch8-q15-3', src: 'CH8 Q15', en: 'According to IAS 2, each class of inventory should normally be valued as a whole.', cn: '根据IAS 2规定，每一类别的存货通常应当作为一个整体进行估值计价。', ans: false, key: '禁止类别整体抵销比较', exp: '将一个产品类别或整体合并对比，会导致跌价损失被其他表现优良存货的未确认溢价所抵销，这违反了<b>审慎性(Prudence)</b>原则，因此通常不被允许。' },
 
-                    { id: 'ch8-q16-1', src: 'CH8 Q16', en: 'If an inventory item costing $80 can only be sold if the selling price is reduced to $75, it should be valued at $75 in the financial statements based on the fair presentation concept.', cn: '如果成本为$80的存货只有在售价降至$75时才能售出，基于公允列报概念，该存货在财务报表中应当估值为$75。', ans: true, key: '跌价存货按NRV入账', exp: '由于成本已高于能产生经济利益的净值，必须将期末存货减记至$75以反映资产的真实账面价值，这遵循了<b>公允列报(Fair presentation)</b>和审慎性原则。' },
 
-                    { id: 'ch8-q24-1', src: 'CH8 Q24', en: 'When $2,000 of inventory is bought on credit, purchases will increase by $2,000 and the bank account will decrease by $2,000.', cn: '赊购$2,000的存货时，采购将增加$2,000，同时银行账户将减少$2,000。', ans: false, key: '赊购不立即影响银行存款', exp: '这是一笔<b>赊购(On credit)</b>交易。企业收到货物但尚未支付现金，因此其实质是增加了流动负债，并不立即导致银行存款流出缩减。' },
-                    { id: 'ch8-q24-2', src: 'CH8 Q24', en: 'When $2,000 of inventory is bought on credit, purchases will increase by $2,000 and trade payables will increase by $2,000.', cn: '赊购$2,000的存货时，采购将增加$2,000，同时应付账款增加$2,000。', ans: true, key: '赊购增加采购与应付账款', exp: '赊购的正确分录为：借记(DR)<b>采购(Purchases)</b>$2,000以记录存货增加，同时由于款项未付，需贷记(CR)<b>应付账款(Trade payables)</b>$2,000以增加当期负债。' },
+
+
+
 
                     { id: 'ch8-q25-1', src: 'CH8 Q25', en: 'The correct general ledger entry for closing inventory includes debiting Closing Inventory in the Statement of Financial Position and crediting the Statement of Profit or Loss.', cn: '期末存货的正确总账分录包括借记财务状况表中的期末存货，并贷记损益表。', ans: true, key: '期末存货转出销售成本进入资产', exp: '期末未售出的存货作为留存的资产，应被借记确认为<b>资产负债表项目(SFP)</b>的存货；同时应当贷记冲减损益表中的<b>销售成本(Cost of sales)</b>，以调整并计算出本期的准确利润。' },
                     { id: 'ch8-q25-2', src: 'CH8 Q25', en: 'The correct general ledger entry for opening inventory includes debiting Closing Inventory and crediting Opening Inventory.', cn: '期初存货的正确总账分录包括借记期末存货，并贷记期初存货。', ans: false, key: '期初存货应转入损益表销售成本', exp: '期初存货在本期默认被出售转为成本。规范的账务调整处理为：借记损益表中的<b>销售成本(Cost of sales)</b>科目作为费用增加，并贷记冲平起初留存的期初存货资产。' }
@@ -2474,7 +2723,6 @@
 
                     // Q37 (原题号16)
                     { id: 'ch18-q37-1', src: 'CH18 Q16', ctx: 'Inventory period: 75 -> 60 days; Receivables days: 40 -> 55 days; Payables days: 30 -> 40 days.', en: 'Debt collection is bringing in cash faster because receivables days increased to 55 days.', cn: '由于应收账款天数增加至55天，债务催收正在更快地带来现金。', ans: false, key: '天数增加代表收款变慢', exp: '<b>应收账款天数(Receivables days)</b>从40天增加到55天，这直接表明收回欠款的速度<b>变慢(slower)</b>了，而不是更快。' },
-                    { id: 'ch18-q37-2', src: 'CH18 Q16', ctx: 'Inventory period: 75 -> 60 days; Receivables days: 40 -> 55 days; Payables days: 30 -> 40 days.', en: 'The business\'s operating cycle has improved from 85 days to 75 days.', cn: '该企业的经营周期从85天改善到了75天。', ans: true, key: '综合天数计算得出改善结果', exp: '初始周期 = 75 + 40 - 30 = 85天。新周期 = 60 + 55 - 40 = 75天。经营周期变短，意味着资金回笼更快，这是一种<b>改善(improved)</b>。' },
 
                     // Q38 (原题号20)
                     { id: 'ch18-q38-1', src: 'CH18 Q20', ctx: 'Quick ratio dropped from 2.4 to 1.7.', en: 'The quick ratio could have declined because the company is holding more inventory.', cn: '速动比率可能下降了，因为公司持有了更多的存货。', ans: false, key: '速动比率早就剔除了存货', exp: '<b>速动比率(Quick ratio)</b>的计算公式是 (流动资产 - 存货) / 流动负债。因为计算中已经预先扣除了这部分金额，所以存货本身的数量变化根本不影响速动比率的值。' },
@@ -2556,6 +2804,7 @@
                     currentChapter = this.dataset.sec;
                     renderCards();
                     updateStats();
+                    updateExportButtons();
                 });
             });
         }
@@ -2694,6 +2943,7 @@
             saveProgress();
             renderCards();
             updateStats();
+            updateExportButtons();
 
             // 滚动到答案区域
             setTimeout(() => {
@@ -2720,6 +2970,7 @@
             saveProgress();
             renderCards();
             updateStats();
+            updateExportButtons();
         }
 
         function resetAllAnswers() {
@@ -2728,6 +2979,7 @@
                 saveProgress();
                 renderCards();
                 updateStats();
+                updateExportButtons();
             }
         }
 
@@ -2738,6 +2990,7 @@
                 saveProgress();
                 renderCards();
                 updateStats();
+                updateExportButtons();
             }
         }
 
@@ -2776,12 +3029,125 @@
             }
         }
 
+        // ==================== 导出错题 ====================
+        function getWrongItems() {
+            let items = getAllItems();
+            // 如果选择了特定章节，则只导出该章节的错题
+            if (currentChapter !== 'all') {
+                items = items.filter(i => i.sectionLabel === currentChapter);
+            }
+            // 筛选出答错的题目
+            return items.filter(i => userAnswers[i.id] !== undefined && userAnswers[i.id] !== i.ans);
+        }
+
+        function exportWrongQuestions(withAnswer) {
+            const wrongItems = getWrongItems();
+            if (wrongItems.length === 0) {
+                alert('🎉 太棒了！当前' + (currentChapter === 'all' ? '全部章节' : currentChapter) + '没有错题。');
+                return;
+            }
+
+            const overlay = document.getElementById('printOverlay');
+            const chapterText = currentChapter === 'all' ? '全部章节' : currentChapter;
+            const modeText = withAnswer ? '含答案' : '不含答案';
+            const now = new Date();
+            const dateStr = now.getFullYear() + '-' +
+                String(now.getMonth() + 1).padStart(2, '0') + '-' +
+                String(now.getDate()).padStart(2, '0');
+
+            let html = `
+                <div class="print-header">
+                    <h1>ACCA FA 概念判断 · 错题集</h1>
+                    <div class="print-meta">
+                        范围：${chapterText} ｜ 模式：${modeText} ｜ 错题数：${wrongItems.length} ｜ 日期：${dateStr}
+                    </div>
+                </div>
+            `;
+
+            wrongItems.forEach((item, idx) => {
+                const contextHTML = item.ctx
+                    ? `<div class="print-item-context">${item.ctx}</div>`
+                    : '';
+
+                let answerHTML = '';
+                if (withAnswer) {
+                    const keyText = item.key.includes('|') ? item.key.split('|').pop().trim() : item.key;
+                    answerHTML = `
+                        <div class="print-answer-section">
+                            <div><span class="print-answer-label">答案：</span><span class="${item.ans ? 'print-answer-correct' : 'print-answer-wrong'}">${item.ans ? '对 (T)' : '错 (F)'}</span></div>
+                            <div><span class="print-answer-label">翻译：</span>${item.cn}</div>
+                            <div><span class="print-answer-label">考点：</span><span class="print-answer-key">${keyText}</span></div>
+                            <div><span class="print-answer-label">解析：</span>${item.exp}</div>
+                        </div>
+                    `;
+                }
+
+                html += `
+                    <div class="print-item">
+                        <div class="print-item-header">
+                            <div class="print-item-tags">
+                                <span class="print-tag">${item.sectionLabel}</span>
+                                <span class="print-tag print-tag-src">${item.src}</span>
+                            </div>
+                            <span>#${idx + 1} / ${wrongItems.length}</span>
+                        </div>
+                        ${contextHTML}
+                        <div class="print-statement">${item.en}</div>
+                        <div class="print-tf-box">
+                            <span class="print-tf-option">T</span>
+                            <span class="print-tf-option">F</span>
+                        </div>
+                        ${answerHTML}
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="print-footer">
+                    ACCA FA 概念判断练习 · 错题集 · ${dateStr}
+                </div>
+            `;
+
+            overlay.innerHTML = html;
+
+            // 修改标题以便 PDF 文件名有意义
+            const origTitle = document.title;
+            document.title = `FA错题集_${chapterText}_${modeText}_${dateStr}`;
+
+            // 延迟打印确保渲染完成
+            setTimeout(() => {
+                window.print();
+                // 恢复标题
+                setTimeout(() => { document.title = origTitle; }, 500);
+            }, 200);
+        }
+
+        function updateExportButtons() {
+            const wrongItems = getWrongItems();
+            const count = wrongItems.length;
+            const noAnsBtn = document.getElementById('exportNoAnswerBtn');
+            const withAnsBtn = document.getElementById('exportWithAnswerBtn');
+            if (noAnsBtn) {
+                noAnsBtn.disabled = count === 0;
+                noAnsBtn.textContent = count > 0
+                    ? `📝 导出错题（不含答案）· ${count}题`
+                    : '📝 导出错题（不含答案）· 无错题';
+            }
+            if (withAnsBtn) {
+                withAnsBtn.disabled = count === 0;
+                withAnsBtn.textContent = count > 0
+                    ? `📋 导出错题（含答案）· ${count}题`
+                    : '📋 导出错题（含答案）· 无错题';
+            }
+        }
+
         // ==================== 初始化 ====================
         function init() {
             loadProgress();
             initChapterButtons();
             renderCards();
             updateStats();
+            updateExportButtons();
 
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.addEventListener('click', function () {
